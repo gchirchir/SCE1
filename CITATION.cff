@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite this repository and the associated paper."
+type: software
+title: "Probing the Accuracy of Adiabatic-Connection Exchange-Correlation Functionals with Highly Accurate, Strongly Correlated Electron Data"
+version: 2.0.0
+date-released: 2026-10-15
+authors:
+  - family-names: Chirchir
+    given-names: Gabriel
+    email: gabrielchirchir@gmail.com
+    affiliation: Nicolaus Copernicus University in Torun
+  - family-names: Bhattacharjee
+    given-names: Abhishek
+    affiliation: National Institute of Science Education and Research, Homi Bhabha National Institute
+  - family-names: Jana
+    given-names: Subrata
+    affiliation: Nicolaus Copernicus University in Torun
+  - family-names: Smiga
+    given-names: Szymon
+    email: szsmiga@fizyka.umk.pl
+    affiliation: Nicolaus Copernicus University in Torun
+repository-code: "https://github.com/gchirchir/SCE1"
+license: MIT
+keywords:
+  - density functional theory
+  - strictly correlated electrons
+  - adiabatic connection
+  - CCSD(T)
+  - inverse Kohn-Sham

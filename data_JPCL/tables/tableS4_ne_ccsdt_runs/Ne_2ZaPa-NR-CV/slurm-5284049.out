@@ -1,0 +1,135 @@
+/var/spool/slurmd/r10-5/job5284049/slurm_script: line 11: /home/<user>/miniconda3/etc/profile.d/conda.sh: No such file or directory
+/var/spool/slurmd/r10-5/job5284049/slurm_script: line 12: conda: command not found
+[jax] Using platform : GPU
+[jax] Active backend : GPU
+[basis] basis_set_exchange available
+
+============================================================
+  Batch run -- density=CCSD(T)  grid=Ne  N_grid=1025
+  Systems: 1
+============================================================
+
+────────────────────────────────────────────────────────────
+  > Running Ne/2ZaPa-NR-CV  (charge=0, spin=0)
+────────────────────────────────────────────────────────────
+  [basis] fetched '2ZaPa-NR-CV' for Ne
+  Using CCSD(T) relaxed density
+    Running HF for CCSD(T)...
+    Running CCSD for CCSD(T)...
+    Computing ERIs...
+    E(CCSD(T)) = -128.7965292562
+    Solving lambda equations...
+cycle = 1  norm(lambda1,lambda2) = 0.0111197
+cycle = 2  norm(lambda1,lambda2) = 0.0033119
+cycle = 3  norm(lambda1,lambda2) = 0.00110465
+cycle = 4  norm(lambda1,lambda2) = 3.59874e-05
+cycle = 5  norm(lambda1,lambda2) = 1.1885e-05
+cycle = 6  norm(lambda1,lambda2) = 1.99713e-06
+cycle = 7  norm(lambda1,lambda2) = 2.83334e-07
+cycle = 8  norm(lambda1,lambda2) = 4.5647e-08
+cycle = 9  norm(lambda1,lambda2) = 9.19793e-09
+    RHF T3-relaxed density OK
+    CCSD(T) density built successfully
+  Nel = 10, U = 65.9485506871
+  [PC4-Updated] W_inf_PC4=-18.9982548008  Wp_inf_PC4=13.7402363058
+  [PC4-Updated] P0=23.1001989119  P1=11.3033126952  P2=15.6255523506
+  [PC4-Updated] I0(LDA_int)=14.9079689784  A=-1.4507927586  C=0.5116633540
+  [PC4-Updated] Wp_inf_LDA=11.8195252527  Wp_GE4_raw=19.788608
+  [PC4-Updated] Padé W:   F_sat=0.55 b1=1.0 b2=1.5980 a1=0.8597 a2=0.8789
+  [PC4-Updated] Padé Wp:  F_sat=1.2 b1=0.6 b2=4.6808 a1=1.0911 a2=5.6170
+  [PC4-Updated] C_wp=0.51166335
+  Running optimization...
+Setting up grid, calculating density and co-motion functions...
+Calculating density, derivatives and coNe integral...
+Calculating last point separately...
+Running random starting calculations for starting points...
+Sorting angles and energies...
+Selecting unique starting points for sweep...
+Number of unique starting points: [272 189 107],
+                fraction: [0.0272 0.0189 0.0107], N_select: 30
+Running first sweep...
+Running first sweep for starting point 1
+Running first sweep for starting point 512
+Running first sweep for starting point 1023
+Running sweeps...
+Sweep counts: [5 5 6 5 4 5 5 5 4 5 6 4 5 5 5 5 5 6 5 5 4 6 5 6 5 5 5 5 5 5 4 4 5 4 4 4 4
+ 4 4 5 5 5 4 5 5 4 4 4 4 4 6 4 5 4 5 4 5 5 6 5 4 4 4 5 4 7 4 4 5 5 5 4 4 5
+ 5 4 5 4 4 4 4 4 5 5 4 4 4 6 4 5]
+Minimizing over the different starting points...
+Checking if grid points are local minima...
+Calculating derivatives of co-motion functions...
+Calculating first derivative of Vee...
+Calculating second derivative of Vee...
+End of optimization.
+  [Ne] Local minimum achieved  : True  (1024/1024 grid points are local minima)
+  [Ne] Convergence threshold   : True  (src = local_minima array,  tol = 1e-06)
+  Computing T_ZP (W'inf)...
+  [T_ZP] Nel=10 -> local Hessian (n_skip=17)
+  [T_ZP] Local Hessian  Nel=10  pts=1024  n_skip=17
+  [T_ZP] Progress: 50/1024
+  [T_ZP] Progress: 100/1024
+  [T_ZP] Progress: 150/1024
+  [T_ZP] Progress: 200/1024
+  [T_ZP] Progress: 250/1024
+  [T_ZP] Progress: 300/1024
+  [T_ZP] Progress: 350/1024
+  [T_ZP] Progress: 400/1024
+  [T_ZP] Progress: 450/1024
+  [T_ZP] Progress: 500/1024
+  [T_ZP] Progress: 550/1024
+  [T_ZP] Progress: 600/1024
+  [T_ZP] Progress: 650/1024
+  [T_ZP] Progress: 700/1024
+  [T_ZP] Progress: 750/1024
+  [T_ZP] Progress: 800/1024
+  [T_ZP] Progress: 850/1024
+  [T_ZP] Progress: 900/1024
+  [T_ZP] Progress: 950/1024
+  [T_ZP] Progress: 1000/1024
+  [T_ZP] Local Hess  W'inf PRL    = 22.8013758816
+  [T_ZP] Local Hess  W'inf legacy = 11.4006879408
+  Computing integrals...
+  [Ne] [sanitize] All Vee arrays are finite — no repair needed.
+
+======================================================================
+RESULTS for Ne  (Nel=10)
+======================================================================
+  Basis            : 2ZaPa-NR-CV
+  Density          : CCSD(T)
+  Grid             : Ne
+  Estimator        : akima
+  U                : 65.9485506871
+  W_inf_SCE        : -20.0346570699
+  W_inf_PC4        : -18.9982548008
+  Wp_inf_SCE       : 22.8013758816
+  Wp_inf_legacy    : 11.4006879408
+  Lambda           : 1.3438891038
+  B                : 0.0048257442
+  I0(LDA_int)      : 14.9079689784
+  A                : -1.4507927586
+  C                : 1.5349900619
+  I2_int           : 8.0970734676
+  I3_int           : 115.1468763400
+  P0               : 23.1001989119
+  P1               : 11.3033126952
+  P2               : 15.6255523506
+  Reference W_inf  : -20.035000
+  Error W_inf      : 0.000343
+  Reference W'inf  : 22.000000
+  Error W'inf(PRL) : 0.801376
+  Time             : 3653.7s
+======================================================================
+
+
+============================================================
+  BATCH SUMMARY   (total wall time: 3653.7s)
+============================================================
+  System                    W_inf_SCE    W_inf_PC4    Err_W_PC4   Wp_inf_SCE   Wp_inf_LDA    Err_LDA   Wp_inf_PC4   Err_Wp_PC4       Lambda            B           I0            A            C       I2_int       I3_int           P0           P1           P2     Time_s
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Ne/2ZaPa-NR-CV           -20.034657   -18.998255     1.036402    22.801376    11.819525   -10.981851    13.740236    -9.061140     1.343889     0.004826    14.907969    -1.450793     1.534990     8.097073   115.146876    23.100199    11.303313    15.625552  3653.675820
+
+  Saved batch summary CSV: data/batch_summary_pc4.csv
+
+  Done. 1/1 systems completed.
+============================================================
+

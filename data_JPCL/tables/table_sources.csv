@@ -1,0 +1,91 @@
+table,system,basis_or_density,quantity,value_in_manuscript,source_file,source_line,source_text
+Table 1,H,aug-cc-pV6Z,W_inf,-0.312499,tables/table1_atoms/ATOMS11.csv,2,"H,aug-cc-pV6Z,-0.3125,0,-0.312499,0.000000"
+Table 1,H,aug-cc-pV6Z,W'_inf,0.000000,tables/table1_atoms/ATOMS11.csv,2,"H,aug-cc-pV6Z,-0.3125,0,-0.312499,0.000000"
+Table 1,H-,aug-cc-pV6Z,W_inf,-0.568864,tables/table1_atoms/ATOMS11.csv,3,"H-,aug-cc-pV6Z,-0.569,, -0.568864,0.143886"
+Table 1,H-,aug-cc-pV6Z,W'_inf,0.143886,tables/table1_atoms/ATOMS11.csv,3,"H-,aug-cc-pV6Z,-0.569,, -0.568864,0.143886"
+Table 1,He,aug-cc-pV6Z,W_inf,-1.498229,tables/table1_atoms/ATOMS11.csv,4,"He,aug-cc-pV6Z,-1.5000,0.62084,-1.498229,0.619737"
+Table 1,He,aug-cc-pV6Z,W'_inf,0.619737,tables/table1_atoms/ATOMS11.csv,4,"He,aug-cc-pV6Z,-1.5000,0.62084,-1.498229,0.619737"
+Table 1,Li,aug-cc-pV5Z,W_inf,-2.595430,tables/table1_atoms/ATOMS11.csv,5,"Li,aug-cc-pV5Z,-2.603,1.38,-2.595430,1.375463"
+Table 1,Li,aug-cc-pV5Z,W'_inf,1.375463,tables/table1_atoms/ATOMS11.csv,5,"Li,aug-cc-pV5Z,-2.603,1.38,-2.595430,1.375463"
+Table 1,Li-,5ZaPa-NR-CV,W_inf,-2.738805,tables/table1_atoms/ATOMS11.csv,6,"Li-,5ZaPa-NR-CV,-2.7308,,-2.738805,1.530232"
+Table 1,Li-,5ZaPa-NR-CV,W'_inf,1.530232,tables/table1_atoms/ATOMS11.csv,6,"Li-,5ZaPa-NR-CV,-2.7308,,-2.738805,1.530232"
+Table 1,Be,5ZaPa-NR-CV,W_inf,-4.020600,tables/table1_atoms/ATOMS11.csv,7,"Be,5ZaPa-NR-CV,-4.021,2.59,-4.020600,2.592271"
+Table 1,Be,5ZaPa-NR-CV,W'_inf,2.592271,tables/table1_atoms/ATOMS11.csv,7,"Be,5ZaPa-NR-CV,-4.021,2.59,-4.020600,2.592271"
+Table 1,B,5ZaPa-NR-CV,W_inf,-5.665341,tables/table1_atoms/ATOMS11.csv,8,"B,5ZaPa-NR-CV,-5.706,4.2,-5.665341,4.012113"
+Table 1,B,5ZaPa-NR-CV,W'_inf,4.012113,tables/table1_atoms/ATOMS11.csv,8,"B,5ZaPa-NR-CV,-5.706,4.2,-5.665341,4.012113"
+Table 1,C,5ZaPa-NR-CV,W_inf,-7.664863,tables/table1_atoms/ATOMS11.csv,9,"C,5ZaPa-NR-CV,-7.782,6.3,-7.664863,6.218505"
+Table 1,C,5ZaPa-NR-CV,W'_inf,6.218505,tables/table1_atoms/ATOMS11.csv,9,"C,5ZaPa-NR-CV,-7.782,6.3,-7.664863,6.218505"
+Table 1,N,5ZaPa-NR-CV,W_inf,-10.239271,tables/table1_atoms/ATOMS11.csv,10,"N,5ZaPa-NR-CV,--,--,-10.239271,9.173528"
+Table 1,N,5ZaPa-NR-CV,W'_inf,9.173528,tables/table1_atoms/ATOMS11.csv,10,"N,5ZaPa-NR-CV,--,--,-10.239271,9.173528"
+Table 1,O,aug-cc-pCV5Z,W_inf,-12.665464,tables/table1_atoms/ATOMS11.csv,11,"O,aug-cc-pCV5Z,--,--,-12.665464,12.699652"
+Table 1,O,aug-cc-pCV5Z,W'_inf,12.699652,tables/table1_atoms/ATOMS11.csv,11,"O,aug-cc-pCV5Z,--,--,-12.665464,12.699652"
+Table 1,F,aug-cc-pCV5Z,W_inf,-16.107609,tables/table1_atoms/ATOMS11.csv,12,"F,aug-cc-pCV5Z,--,,-16.107609,17.247974"
+Table 1,F,aug-cc-pCV5Z,W'_inf,17.247974,tables/table1_atoms/ATOMS11.csv,12,"F,aug-cc-pCV5Z,--,,-16.107609,17.247974"
+Table 1,F-,5ZaPa-NR-CV,W_inf,-16.945668,tables/table1_atoms/ATOMS11.csv,13,"F-,5ZaPa-NR-CV,-16.94,--,-16.945668,18.211834"
+Table 1,F-,5ZaPa-NR-CV,W'_inf,18.211834,tables/table1_atoms/ATOMS11.csv,13,"F-,5ZaPa-NR-CV,-16.94,--,-16.945668,18.211834"
+Table 1,Ne,5ZaPa-NR-CV,W_inf,-20.050175,tables/table1_atoms/ATOMS11.csv,14,"Ne,5ZaPa-NR-CV,-20.041,22,-20.050175,22.828919"
+Table 1,Ne,5ZaPa-NR-CV,W'_inf,22.828919,tables/table1_atoms/ATOMS11.csv,14,"Ne,5ZaPa-NR-CV,-20.041,22,-20.050175,22.828919"
+Table 1,Na,aug-cc-pCV5Z,W_inf,-23.288372,tables/table1_atoms/ATOMS11.csv,15,"Na,aug-cc-pCV5Z,--,--,-23.288372,28.684476"
+Table 1,Na,aug-cc-pCV5Z,W'_inf,28.684476,tables/table1_atoms/ATOMS11.csv,15,"Na,aug-cc-pCV5Z,--,--,-23.288372,28.684476"
+Table 1,Mg,aug-cc-pCV5Z,W_inf,-26.734839,tables/table1_atoms/ATOMS11.csv,16,"Mg,aug-cc-pCV5Z,-26.709,--,-26.734839,34.970038"
+Table 1,Mg,aug-cc-pCV5Z,W'_inf,34.970038,tables/table1_atoms/ATOMS11.csv,16,"Mg,aug-cc-pCV5Z,-26.709,--,-26.734839,34.970038"
+Table 1,Cl-,aug-cc-pCV5Z,W_inf,-47.314417,tables/table1_atoms/ATOMS11.csv,17,"Cl-,aug-cc-pCV5Z,-47.26,--,-47.314417,76.152468"
+Table 1,Cl-,aug-cc-pCV5Z,W'_inf,76.152468,tables/table1_atoms/ATOMS11.csv,17,"Cl-,aug-cc-pCV5Z,-47.26,--,-47.314417,76.152468"
+Table 1,Ar,aug-cc-pVQZ,W_inf,-51.532056,tables/table1_atoms/ATOMS11.csv,18,"Ar,aug-cc-pVQZ,-51.49,--,-51.532056,84.796276"
+Table 1,Ar,aug-cc-pVQZ,W'_inf,84.796276,tables/table1_atoms/ATOMS11.csv,18,"Ar,aug-cc-pVQZ,-51.49,--,-51.532056,84.796276"
+Table 1,Ca,cc-pCV5Z,W_inf,-60.478668,tables/table1_atoms/ATOMS11.csv,19,"Ca,cc-pCV5Z,-60.34,--,-60.478668,106.457831"
+Table 1,Ca,cc-pCV5Z,W'_inf,106.457831,tables/table1_atoms/ATOMS11.csv,19,"Ca,cc-pCV5Z,-60.34,--,-60.478668,106.457831"
+Table 1,Kr,jorge-AQZP,W_inf,-166.824454,tables/table1_atoms/ATOMS11.csv,20,"Kr,jorge-AQZP,-166.85,--,-166.824454,393.272705"
+Table 1,Kr,jorge-AQZP,W'_inf,393.272705,tables/table1_atoms/ATOMS11.csv,20,"Kr,jorge-AQZP,-166.85,--,-166.824454,393.272705"
+Table 1,Zn,aug-cc-pwCV5Z,W_inf,-123.094509,,,NO ARCHIVED RAW OUTPUT FOUND
+Table 1,Zn,aug-cc-pwCV5Z,W'_inf,263.356683,,,NO ARCHIVED RAW OUTPUT FOUND
+Table 1,Xe,jorge-AQZP,W_inf,-322.804525,tables/table1_atoms/merged_all_results11.csv,9,"CCSD,Xe,0.5000000000,jorge-AQZP,0,0,RHF,spin_summed,nao145_202c6e6c54b6,native_optimizer(Nel=54),-7231.0391250938,-331.8022573082,1042.4994018839,-331.172371062"
+Table 1,Xe,jorge-AQZP,W'_inf,935.396882,tables/table1_atoms/merged_all_results11.csv,9,"CCSD,Xe,0.5000000000,jorge-AQZP,0,0,RHF,spin_summed,nao145_202c6e6c54b6,native_optimizer(Nel=54),-7231.0391250938,-331.8022573082,1042.4994018839,-331.172371062"
+Table S4,Ne HF,2ZaPa-NR-CV,W_inf,-20.033621,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne HF,2ZaPa-NR-CV,W'_inf,22.801048,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne HF,3ZaPa-NR-CV,W_inf,-20.046101,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne HF,3ZaPa-NR-CV,W'_inf,22.824874,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne HF,4ZaPa-NR-CV,W_inf,-20.048842,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne HF,4ZaPa-NR-CV,W'_inf,22.828271,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne HF,5ZaPa-NR-CV,W_inf,-20.049355,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne HF,5ZaPa-NR-CV,W'_inf,22.828723,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne CCSD,2ZaPa-NR-CV,W_inf,-20.034612,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne CCSD,2ZaPa-NR-CV,W'_inf,22.801358,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne CCSD,3ZaPa-NR-CV,W_inf,-20.046944,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne CCSD,3ZaPa-NR-CV,W'_inf,22.825078,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne CCSD,4ZaPa-NR-CV,W_inf,-20.049626,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne CCSD,4ZaPa-NR-CV,W'_inf,22.828455,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne CCSD,5ZaPa-NR-CV,W_inf,-20.050130,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne CCSD,5ZaPa-NR-CV,W'_inf,22.828902,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S4,Ne CCSD(T),2ZaPa-NR-CV,W_inf,-20.034657,tables/tableS4_ne_ccsdt_runs/Ne_2ZaPa-NR-CV/slurm-5284049.out,102,W_inf_SCE        : -20.0346570699
+Table S4,Ne CCSD(T),2ZaPa-NR-CV,W'_inf,22.801376,tables/tableS4_ne_ccsdt_runs/Ne_2ZaPa-NR-CV/slurm-5284049.out,89,[T_ZP] Local Hess  W'inf PRL    = 22.8013758816
+Table S4,Ne CCSD(T),3ZaPa-NR-CV,W_inf,-20.046989,tables/tableS4_ne_ccsdt_runs/Ne_3ZaPa-NR-CV/slurm-5284048.out,106,W_inf_SCE        : -20.0469894095
+Table S4,Ne CCSD(T),3ZaPa-NR-CV,W'_inf,22.825095,tables/tableS4_ne_ccsdt_runs/Ne_3ZaPa-NR-CV/slurm-5284048.out,93,[T_ZP] Local Hess  W'inf PRL    = 22.8250952234
+Table S4,Ne CCSD(T),4ZaPa-NR-CV,W_inf,-20.049671,tables/tableS4_ne_ccsdt_runs/Ne_4ZaPa-NR-CV/slurm-5284047.out,106,W_inf_SCE        : -20.0496709903
+Table S4,Ne CCSD(T),4ZaPa-NR-CV,W'_inf,22.828472,tables/tableS4_ne_ccsdt_runs/Ne_4ZaPa-NR-CV/slurm-5284047.out,93,[T_ZP] Local Hess  W'inf PRL    = 22.8284718045
+Table S4,Ne CCSD(T),5ZaPa-NR-CV,W_inf,-20.050175,tables/tableS4_ne_ccsdt_runs/Ne_5ZaPa-NR-CV/slurm-5284046.out,103,W_inf_SCE        : -20.0501746823
+Table S4,Ne CCSD(T),5ZaPa-NR-CV,W'_inf,22.828919,tables/tableS4_ne_ccsdt_runs/Ne_5ZaPa-NR-CV/slurm-5284046.out,90,[T_ZP] Local Hess  W'inf PRL    = 22.8289188965
+Table S5,Ne HF,2ZaPa-NR-CV,W_inf,-20.043780,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,806,PyOEP W_inf      : -20.0437799971
+Table S5,Ne HF,2ZaPa-NR-CV,W'_inf,22.815791,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,707,[T_ZP] Local Hess W'inf = 22.8157910226
+Table S5,Ne HF,3ZaPa-NR-CV,W_inf,-20.043548,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,306,PyOEP W_inf      : -20.0435479208
+Table S5,Ne HF,3ZaPa-NR-CV,W'_inf,22.826876,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,207,[T_ZP] Local Hess W'inf = 22.8268758989
+Table S5,Ne HF,4ZaPa-NR-CV,W_inf,-20.072321,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,1807,PyOEP W_inf      : -20.0723206170
+Table S5,Ne HF,4ZaPa-NR-CV,W'_inf,22.828123,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,1707,[T_ZP] Local Hess W'inf = 22.8281229837
+Table S5,Ne HF,5ZaPa-NR-CV,W_inf,-20.073312,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S5,Ne HF,5ZaPa-NR-CV,W'_inf,22.828697,,,NO ARCHIVED RAW OUTPUT FOUND
+Table S5,Ne CCSD,2ZaPa-NR-CV,W_inf,-20.037534,tables/tableS5_ne_pyoep/pasted_2026-09-11_Ne_CCSD_pyoep.txt,1566,PyOEP W_inf      : -20.0375339425
+Table S5,Ne CCSD,2ZaPa-NR-CV,W'_inf,22.803167,tables/tableS5_ne_pyoep/pasted_2026-09-11_Ne_CCSD_pyoep.txt,282,[T_ZP] Local Hess W'inf = 22.8031673144
+Table S5,Ne CCSD,3ZaPa-NR-CV,W_inf,-20.047582,tables/tableS5_ne_pyoep/pasted_2026-09-11_Ne_CCSD_pyoep.txt,1826,PyOEP W_inf      : -20.0475815200
+Table S5,Ne CCSD,3ZaPa-NR-CV,W'_inf,22.828471,tables/tableS5_ne_pyoep/pasted_2026-09-11_Ne_CCSD_pyoep.txt,433,[T_ZP] Local Hess W'inf = 22.8284714076
+Table S5,Ne CCSD,4ZaPa-NR-CV,W_inf,-20.054557,tables/tableS5_ne_pyoep/pasted_2026-09-11_Ne_CCSD_pyoep.txt,2084,PyOEP W_inf      : -20.0545574679
+Table S5,Ne CCSD,4ZaPa-NR-CV,W'_inf,22.832757,tables/tableS5_ne_pyoep/pasted_2026-09-11_Ne_CCSD_pyoep.txt,585,[T_ZP] Local Hess W'inf = 22.8327571022
+Table S5,Ne CCSD,5ZaPa-NR-CV,W_inf,-20.054402,tables/tableS5_ne_pyoep/pasted_2026-09-11_Ne_CCSD_pyoep.txt,1312,PyOEP W_inf      : -20.0544023143
+Table S5,Ne CCSD,5ZaPa-NR-CV,W'_inf,22.833571,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,2505,[T_ZP] Local Hess W'inf = 22.8335708103
+Table S5,Ne CCSD(T),2ZaPa-NR-CV,W_inf,-20.019941,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,1021,PyOEP W_inf      : -20.0199414521
+Table S5,Ne CCSD(T),2ZaPa-NR-CV,W'_inf,22.801376,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,923,[T_ZP] Local Hess W'inf = 22.8013758812
+Table S5,Ne CCSD(T),3ZaPa-NR-CV,W_inf,-20.025331,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,526,PyOEP W_inf      : -20.0253312206
+Table S5,Ne CCSD(T),3ZaPa-NR-CV,W'_inf,22.825095,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,425,[T_ZP] Local Hess W'inf = 22.8250952235
+Table S5,Ne CCSD(T),4ZaPa-NR-CV,W_inf,-20.048169,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,2026,PyOEP W_inf      : -20.0481694450
+Table S5,Ne CCSD(T),4ZaPa-NR-CV,W'_inf,22.828472,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,1926,[T_ZP] Local Hess W'inf = 22.8284718040
+Table S5,Ne CCSD(T),5ZaPa-NR-CV,W_inf,-20.035016,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,2298,PyOEP W_inf      : -20.0350156610
+Table S5,Ne CCSD(T),5ZaPa-NR-CV,W'_inf,22.828919,tables/tableS5_ne_pyoep/pasted_2026-09-09_Ne_HF_CCSDT_pyoep.txt,2208,[T_ZP] Local Hess W'inf = 22.8289188960

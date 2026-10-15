@@ -1,0 +1,678 @@
+# Excerpt of cluster output pasted by the author into a working session (2026-09-09).
+# Cluster username and host anonymized; only run-summary blocks containing Table S5 (formerly Table 3)
+# values are kept. Numbers at the left are line numbers in the original pasted text.
+
+  167: Running sweeps...
+  168: fail counts: [206  40 106  11  32  43  66 232 113   6   0   5  40  15   2   0   7  35
+  169:   66  72  66 142  67  49  12  73  52  13  16 256  26   1  11  37  37  15
+  170:   67  49  37  48  20  70  19  21 132  48  52  35  35  20  25  10   9   6
+  171:  126 153 122  66  77  21 261  14   0 420   0  68 201   7 158  11   0   0
+  172:    1 213  38 191 318 258   0   0 288 425   4   2 313 567   1 326  34  58]
+  173: fail counts below N_grid_end (Array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+  174:        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+  175:        34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+  176:        51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+  177:        68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84,
+  178:        85, 86, 87, 88, 89], dtype=int64),)
+  179: Minimizing over the different starting points...
+  180: Checking if grid points are local minima...
+  181: Calculating derivatives of co-motion functions...
+  182: Calculating first derivative of Vee...
+  183: Calculating second derivative of Vee...
+  184: End of optimization.
+  185:   [WY] Local minima: 1024/1024
+  186:   [T_ZP] Nel=10 -> local Hessian (n_skip=17)
+  187:   [T_ZP] Progress: 50/1024
+  188:   [T_ZP] Progress: 100/1024
+  189:   [T_ZP] Progress: 150/1024
+  190:   [T_ZP] Progress: 200/1024
+  191:   [T_ZP] Progress: 250/1024
+  192:   [T_ZP] Progress: 300/1024
+  193:   [T_ZP] Progress: 350/1024
+  194:   [T_ZP] Progress: 400/1024
+  195:   [T_ZP] Progress: 450/1024
+  196:   [T_ZP] Progress: 500/1024
+  197:   [T_ZP] Progress: 550/1024
+  198:   [T_ZP] Progress: 600/1024
+  199:   [T_ZP] Progress: 650/1024
+  200:   [T_ZP] Progress: 700/1024
+  201:   [T_ZP] Progress: 750/1024
+  202:   [T_ZP] Progress: 800/1024
+  203:   [T_ZP] Progress: 850/1024
+  204:   [T_ZP] Progress: 900/1024
+  205:   [T_ZP] Progress: 950/1024
+  206:   [T_ZP] Progress: 1000/1024
+  207:   [T_ZP] Local Hess W'inf = 22.8268758989
+  208:   [integrate-diag] f[:, Nel-2]: min|f|=1.521e+00, no points below 1e-3 -- regularization denominator is well-conditioned across the whole grid.
+  209:   [PYOEP/SCE] Native jaxsce optimization: Nel=10, grid=Ne, N_grid=1025
+  210: Setting up grid, calculating density and co-motion functions...
+   ...
+  266: RESULTS for Ne  (Nel=10)
+  267: ================================================================================
+  268:   Basis            : 3ZaPa-NR-CV
+  269:   Target density   : HF
+  270:   Grid             : analytical radial
+  271:   Estimator        : analytical-N2
+  272:   --- Wu-Yang (independent; no fallback) ---
+  273:   WY result usable : True
+  274:   WY converged     : True
+  275:   WY rho L2 error  : 5.774594e-02
+  276:   WY rho tolerance : 5.000000e-02
+  277:   WY rho passed    : False
+  278:   WY rho warning   : rho L2 error 5.775e-02 exceeds 5.000e-02; continuing with available density
+  279:   WY U             : 65.9396408877
+  280:   WY W_inf         : -19.8728773159
+  281:   WY W'inf         : 22.8268758989
+  282:   WY SCE estimator : akima
+  283:   WY W0            : -12.0691503208
+  284:   WY W0_prime      : -0.8570018030
+  285:   WY SPL corr.     : -0.3870494058
+  286:   WY genISI2 corr. : -0.3576304771
+  287:   WY E_SPL         : -128.9327584411
+  288:   WY E_genISI2     : -128.9033395125
+  289:   --- PyOEP (independent; no fallback) ---
+  290:   PyOEP method     : KSINV
+  291:   PyOEP orbital bs : 3ZaPa-NR-CV
+  292:   PyOEP OEP basis  : 3ZaPa-NR-CV
+  293:   PyOEP result usable: True
+  294:   PyOEP converged  : True
+  295:   PyOEP space sym  : False
+  296:   PyOEP rho L2     : 8.522949e-03
+  297:   PyOEP rho tolerance: 5.000000e-02
+  298:   PyOEP rho passed : True
+  299:   WY-PyOEP rho L2  : 5.655539e-02
+  300:   PyOEP W0         : -12.0993475220
+  301:   PyOEP W0_prime   : -0.8464308587
+  302:   PyOEP SPL corr.  : -0.3833555564
+  303:   PyOEP genISI2 corr: -0.3574584671
+  304:   PyOEP E_SPL      : -128.9290645917
+  305:   PyOEP E_genISI2  : -128.9031675024
+  306:   PyOEP W_inf      : -20.0435479208
+  307:   PyOEP W'inf      : 22.8268758989
+  308:   PyOEP SCE estim. : akima
+  309:   Reference W_inf  : -20.035000
+   ...
+  385: Running sweeps...
+  386: fail counts: [ 16  46   7  20  90 146  66  20   4  70   0  25  12  31  21   4  21 161
+  387:    0  10 217   1   0  20   2  49  20   6 120   8  24  10  38  65  48  56
+  388:   18   7  93  95   1   8   1  36 197  90  84  25 113 137  68  11  26   2
+  389:    0  57  44 118  56   2 323 721   0  22  18   2 182 150 286  30  40 459
+  390:  319  82   3   0 287 164 172  50  79 212 188  25 187 501 160  37 277 124]
+  391: fail counts below N_grid_end (Array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+  392:        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+  393:        34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+  394:        51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+  395:        68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84,
+  396:        85, 86, 87, 88, 89], dtype=int64),)
+  397: Minimizing over the different starting points...
+  398: Checking if grid points are local minima...
+  399: Calculating derivatives of co-motion functions...
+  400: Calculating first derivative of Vee...
+  401: Calculating second derivative of Vee...
+  402: End of optimization.
+  403:   [WY] Local minima: 1024/1024
+  404:   [T_ZP] Nel=10 -> local Hessian (n_skip=17)
+  405:   [T_ZP] Progress: 50/1024
+  406:   [T_ZP] Progress: 100/1024
+  407:   [T_ZP] Progress: 150/1024
+  408:   [T_ZP] Progress: 200/1024
+  409:   [T_ZP] Progress: 250/1024
+  410:   [T_ZP] Progress: 300/1024
+  411:   [T_ZP] Progress: 350/1024
+  412:   [T_ZP] Progress: 400/1024
+  413:   [T_ZP] Progress: 450/1024
+  414:   [T_ZP] Progress: 500/1024
+  415:   [T_ZP] Progress: 550/1024
+  416:   [T_ZP] Progress: 600/1024
+  417:   [T_ZP] Progress: 650/1024
+  418:   [T_ZP] Progress: 700/1024
+  419:   [T_ZP] Progress: 750/1024
+  420:   [T_ZP] Progress: 800/1024
+  421:   [T_ZP] Progress: 850/1024
+  422:   [T_ZP] Progress: 900/1024
+  423:   [T_ZP] Progress: 950/1024
+  424:   [T_ZP] Progress: 1000/1024
+  425:   [T_ZP] Local Hess W'inf = 22.8250952235
+  426:   [integrate-diag] f[:, Nel-2]: min|f|=1.538e+00, no points below 1e-3 -- regularization denominator is well-conditioned across the whole grid.
+  427:   [PYOEP/SCE] Native jaxsce optimization: Nel=10, grid=Ne, N_grid=1025
+  428: Setting up grid, calculating density and co-motion functions...
+   ...
+  486: RESULTS for Ne  (Nel=10)
+  487: ================================================================================
+  488:   Basis            : 3ZaPa-NR-CV
+  489:   Target density   : CCSD(T)
+  490:   Grid             : analytical radial
+  491:   Estimator        : analytical-N2
+  492:   --- Wu-Yang (independent; no fallback) ---
+  493:   WY result usable : True
+  494:   WY converged     : True
+  495:   WY rho L2 error  : 8.477379e-02
+  496:   WY rho tolerance : 5.000000e-02
+  497:   WY rho passed    : False
+  498:   WY rho warning   : rho L2 error 8.477e-02 exceeds 5.000e-02; continuing with available density
+  499:   WY U             : 65.3701538913
+  500:   WY W_inf         : -19.4114289024
+  501:   WY W'inf         : 22.8250952235
+  502:   WY SCE estimator : akima
+  503:   WY W0            : -11.9632424292
+  504:   WY W0_prime      : -0.9186803758
+  505:   WY SPL corr.     : -0.4101446476
+  506:   WY genISI2 corr. : -0.3673173857
+  507:   WY E_SPL         : -128.9558536829
+  508:   WY E_genISI2     : -128.9130264211
+  509:   --- PyOEP (independent; no fallback) ---
+  510:   PyOEP method     : KSINV
+  511:   PyOEP orbital bs : 3ZaPa-NR-CV
+  512:   PyOEP OEP basis  : 3ZaPa-NR-CV
+  513:   PyOEP result usable: True
+  514:   PyOEP converged  : True
+  515:   PyOEP space sym  : False
+  516:   PyOEP rho L2     : 6.462185e-03
+  517:   PyOEP rho tolerance: 5.000000e-02
+  518:   PyOEP rho passed : True
+  519:   WY-PyOEP rho L2  : 8.555564e-02
+  520:   PyOEP W0         : -12.0743021252
+  521:   PyOEP W0_prime   : -0.8636010735
+  522:   PyOEP SPL corr.  : -0.3904346705
+  523:   PyOEP genISI2 corr: -0.3630039169
+  524:   PyOEP E_SPL      : -128.9361437058
+  525:   PyOEP E_genISI2  : -128.9087129522
+  526:   PyOEP W_inf      : -20.0253312206
+  527:   PyOEP W'inf      : 22.8250952235
+  528:   PyOEP SCE estim. : akima
+  529:   Reference W_inf  : -20.035000
+   ...
+  667: Running sweeps...
+  668: fail counts: [ 68   2  56  43  42 127  68  37 125   7   1  12 121  26   2   3  13   5
+  669:    4  33  34  31  88   0   7   8 104   3 228  23  86  87  19  86  86  13
+  670:  226  11  23  32  50 139  64  17  51  59  77 194  46   2   0  21  19  17
+  671:  203   7  16   8  87   1  16   9  65 330 168   0 282  93  63 101  82  38
+  672:   33 263 126  17 279 395 291 183   3   0 218  77 217 217 122 747 149 274]
+  673: fail counts below N_grid_end (Array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+  674:        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+  675:        34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+  676:        51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+  677:        68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84,
+  678:        85, 86, 87, 88, 89], dtype=int64),)
+  679: Minimizing over the different starting points...
+  680: Checking if grid points are local minima...
+  681: Calculating derivatives of co-motion functions...
+  682: Calculating first derivative of Vee...
+  683: Calculating second derivative of Vee...
+  684: End of optimization.
+  685:   [WY] Local minima: 1024/1024
+  686:   [T_ZP] Nel=10 -> local Hessian (n_skip=17)
+  687:   [T_ZP] Progress: 50/1024
+  688:   [T_ZP] Progress: 100/1024
+  689:   [T_ZP] Progress: 150/1024
+  690:   [T_ZP] Progress: 200/1024
+  691:   [T_ZP] Progress: 250/1024
+  692:   [T_ZP] Progress: 300/1024
+  693:   [T_ZP] Progress: 350/1024
+  694:   [T_ZP] Progress: 400/1024
+  695:   [T_ZP] Progress: 450/1024
+  696:   [T_ZP] Progress: 500/1024
+  697:   [T_ZP] Progress: 550/1024
+  698:   [T_ZP] Progress: 600/1024
+  699:   [T_ZP] Progress: 650/1024
+  700:   [T_ZP] Progress: 700/1024
+  701:   [T_ZP] Progress: 750/1024
+  702:   [T_ZP] Progress: 800/1024
+  703:   [T_ZP] Progress: 850/1024
+  704:   [T_ZP] Progress: 900/1024
+  705:   [T_ZP] Progress: 950/1024
+  706:   [T_ZP] Progress: 1000/1024
+  707:   [T_ZP] Local Hess W'inf = 22.8157910226
+  708:   [integrate-diag] f[:, Nel-2]: min|f|=1.526e+00, no points below 1e-3 -- regularization denominator is well-conditioned across the whole grid.
+  709:   [PYOEP/SCE] Native jaxsce optimization: Nel=10, grid=Ne, N_grid=1025
+  710: Setting up grid, calculating density and co-motion functions...
+   ...
+  766: RESULTS for Ne  (Nel=10)
+  767: ================================================================================
+  768:   Basis            : 2ZaPa-NR-CV
+  769:   Target density   : HF
+  770:   Grid             : analytical radial
+  771:   Estimator        : analytical-N2
+  772:   --- Wu-Yang (independent; no fallback) ---
+  773:   WY result usable : True
+  774:   WY converged     : True
+  775:   WY rho L2 error  : 6.145907e-02
+  776:   WY rho tolerance : 5.000000e-02
+  777:   WY rho passed    : False
+  778:   WY rho warning   : rho L2 error 6.146e-02 exceeds 5.000e-02; continuing with available density
+  779:   WY U             : 65.5105792850
+  780:   WY W_inf         : -19.4804203564
+  781:   WY W'inf         : 22.8157910226
+  782:   WY SCE estimator : akima
+  783:   WY W0            : -11.9973627904
+  784:   WY W0_prime      : -0.6938762438
+  785:   WY SPL corr.     : -0.3180713615
+  786:   WY genISI2 corr. : -0.2992068680
+  787:   WY E_SPL         : -128.8551092423
+  788:   WY E_genISI2     : -128.8362447487
+  789:   --- PyOEP (independent; no fallback) ---
+  790:   PyOEP method     : KSINV
+  791:   PyOEP orbital bs : 2ZaPa-NR-CV
+  792:   PyOEP OEP basis  : 2ZaPa-NR-CV
+  793:   PyOEP result usable: True
+  794:   PyOEP converged  : True
+  795:   PyOEP space sym  : False
+  796:   PyOEP rho L2     : 7.233210e-03
+  797:   PyOEP rho tolerance: 5.000000e-02
+  798:   PyOEP rho passed : True
+  799:   WY-PyOEP rho L2  : 5.950255e-02
+  800:   PyOEP W0         : -12.0950249147
+  801:   PyOEP W0_prime   : -0.6363967083
+  802:   PyOEP SPL corr.  : -0.2950169039
+  803:   PyOEP genISI2 corr: -0.2868315033
+  804:   PyOEP E_SPL      : -128.8320547847
+  805:   PyOEP E_genISI2  : -128.8238693841
+  806:   PyOEP W_inf      : -20.0437799971
+  807:   PyOEP W'inf      : 22.8157910226
+  808:   PyOEP SCE estim. : akima
+  809:   Reference W_inf  : -20.035000
+   ...
+  883: Running sweeps...
+  884: fail counts: [ 13  25   6  10   3  81   3  90  12  91   0  27   9   4 135   5  49   0
+  885:    8  53   4   2   5  18   4  17   2  18  85   5 102  48  69  61  11  15
+  886:  121  63  28  39  48  36  10  10  24  51  35 146  57  41  40  31  41  13
+  887:    4  21  18 122   3   3   9  57   0 314 345   3 139  12 487 157 369 508
+  888:  217   5  14   5 254 130 146 540  72   9 128  71 315 591 108  75 329 235]
+  889: fail counts below N_grid_end (Array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+  890:        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+  891:        34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+  892:        51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+  893:        68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84,
+  894:        85, 86, 87, 88, 89], dtype=int64),)
+  895: Minimizing over the different starting points...
+  896: Checking if grid points are local minima...
+  897: Calculating derivatives of co-motion functions...
+  898: Calculating first derivative of Vee...
+  899: Calculating second derivative of Vee...
+  900: End of optimization.
+  901:   [WY] Local minima: 1024/1024
+  902:   [T_ZP] Nel=10 -> local Hessian (n_skip=17)
+  903:   [T_ZP] Progress: 50/1024
+  904:   [T_ZP] Progress: 100/1024
+  905:   [T_ZP] Progress: 150/1024
+  906:   [T_ZP] Progress: 200/1024
+  907:   [T_ZP] Progress: 250/1024
+  908:   [T_ZP] Progress: 300/1024
+  909:   [T_ZP] Progress: 350/1024
+  910:   [T_ZP] Progress: 400/1024
+  911:   [T_ZP] Progress: 450/1024
+  912:   [T_ZP] Progress: 500/1024
+  913:   [T_ZP] Progress: 550/1024
+  914:   [T_ZP] Progress: 600/1024
+  915:   [T_ZP] Progress: 650/1024
+  916:   [T_ZP] Progress: 700/1024
+  917:   [T_ZP] Progress: 750/1024
+  918:   [T_ZP] Progress: 800/1024
+  919:   [T_ZP] Progress: 850/1024
+  920:   [T_ZP] Progress: 900/1024
+  921:   [T_ZP] Progress: 950/1024
+  922:   [T_ZP] Progress: 1000/1024
+  923:   [T_ZP] Local Hess W'inf = 22.8013758812
+  924:   [integrate-diag] f[:, Nel-2]: min|f|=1.541e+00, no points below 1e-3 -- regularization denominator is well-conditioned across the whole grid.
+  925:   [PYOEP/SCE] Native jaxsce optimization: Nel=10, grid=Ne, N_grid=1025
+  926: Setting up grid, calculating density and co-motion functions...
+   ...
+  981: ================================================================================
+  982: RESULTS for Ne  (Nel=10)
+  983: ================================================================================
+  984:   Basis            : 2ZaPa-NR-CV
+  985:   Target density   : CCSD(T)
+  986:   Grid             : analytical radial
+  987:   Estimator        : analytical-N2
+  988:   --- Wu-Yang (independent; no fallback) ---
+  989:   WY result usable : True
+  990:   WY converged     : True
+  991:   WY rho L2 error  : 4.911220e-02
+  992:   WY rho tolerance : 5.000000e-02
+  993:   WY rho passed    : True
+  994:   WY U             : 65.5338965484
+  995:   WY W_inf         : -19.6200029333
+  996:   WY W'inf         : 22.8013758812
+  997:   WY SCE estimator : akima
+  998:   WY W0            : -12.0011053096
+  999:   WY W0_prime      : -0.6915124604
+ 1000:   WY SPL corr.     : -0.3175363273
+ 1001:   WY genISI2 corr. : -0.3008202170
+ 1002:   WY E_SPL         : -128.8545742080
+ 1003:   WY E_genISI2     : -128.8378580978
+ 1004:   --- PyOEP (independent; no fallback) ---
+ 1005:   PyOEP method     : KSINV
+ 1006:   PyOEP orbital bs : 2ZaPa-NR-CV
+ 1007:   PyOEP OEP basis  : 2ZaPa-NR-CV
+ 1008:   PyOEP result usable: True
+ 1009:   PyOEP converged  : True
+ 1010:   PyOEP space sym  : False
+ 1011:   PyOEP rho L2     : 8.715871e-03
+ 1012:   PyOEP rho tolerance: 5.000000e-02
+ 1013:   PyOEP rho passed : True
+ 1014:   WY-PyOEP rho L2  : 4.431848e-02
+ 1015:   PyOEP W0         : -12.0704594056
+ 1016:   PyOEP W0_prime   : -0.6514448315
+ 1017:   PyOEP SPL corr.  : -0.3014848039
+ 1018:   PyOEP genISI2 corr: -0.2922886999
+ 1019:   PyOEP E_SPL      : -128.8385226847
+ 1020:   PyOEP E_genISI2  : -128.8293265806
+ 1021:   PyOEP W_inf      : -20.0199414521
+ 1022:   PyOEP W'inf      : 22.8013758812
+ 1023:   PyOEP SCE estim. : akima
+ 1024:   Reference W_inf  : -20.035000
+   ...
+ 1667: Running sweeps...
+ 1668: fail counts: [228  11  74   1  27  25  32  20  73   5   9   1  88 179  74   1  35   8
+ 1669:   66  15   5 296   4   0 268  69  39  50  15  33  12 353  14   9  14  54
+ 1670:    8 171  65   6  58  45  43   4   5  14  19  40  26  15  37  30 127   8
+ 1671:   66  27  17 171  57   5  36   4  17   6  82   1 454 277  50 237  62   0
+ 1672:   74   5  36   4   2  60 154 852 117 186   4 172  11  74 457  72 476   2]
+ 1673: fail counts below N_grid_end (Array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+ 1674:        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+ 1675:        34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+ 1676:        51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+ 1677:        68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84,
+ 1678:        85, 86, 87, 88, 89], dtype=int64),)
+ 1679: Minimizing over the different starting points...
+ 1680: Checking if grid points are local minima...
+ 1681: Calculating derivatives of co-motion functions...
+ 1682: Calculating first derivative of Vee...
+ 1683: Calculating second derivative of Vee...
+ 1684: End of optimization.
+ 1685:   [WY] Local minima: 1024/1024
+ 1686:   [T_ZP] Nel=10 -> local Hessian (n_skip=17)
+ 1687:   [T_ZP] Progress: 50/1024
+ 1688:   [T_ZP] Progress: 100/1024
+ 1689:   [T_ZP] Progress: 150/1024
+ 1690:   [T_ZP] Progress: 200/1024
+ 1691:   [T_ZP] Progress: 250/1024
+ 1692:   [T_ZP] Progress: 300/1024
+ 1693:   [T_ZP] Progress: 350/1024
+ 1694:   [T_ZP] Progress: 400/1024
+ 1695:   [T_ZP] Progress: 450/1024
+ 1696:   [T_ZP] Progress: 500/1024
+ 1697:   [T_ZP] Progress: 550/1024
+ 1698:   [T_ZP] Progress: 600/1024
+ 1699:   [T_ZP] Progress: 650/1024
+ 1700:   [T_ZP] Progress: 700/1024
+ 1701:   [T_ZP] Progress: 750/1024
+ 1702:   [T_ZP] Progress: 800/1024
+ 1703:   [T_ZP] Progress: 850/1024
+ 1704:   [T_ZP] Progress: 900/1024
+ 1705:   [T_ZP] Progress: 950/1024
+ 1706:   [T_ZP] Progress: 1000/1024
+ 1707:   [T_ZP] Local Hess W'inf = 22.8281229837
+ 1708:   [integrate-diag] f[:, Nel-2]: min|f|=1.520e+00, no points below 1e-3 -- regularization denominator is well-conditioned across the whole grid.
+ 1709:   [PYOEP/SCE] Native jaxsce optimization: Nel=10, grid=Ne, N_grid=1025
+ 1710: Setting up grid, calculating density and co-motion functions...
+   ...
+ 1767: ================================================================================
+ 1768: RESULTS for Ne  (Nel=10)
+ 1769: ================================================================================
+ 1770:   Basis            : 4ZaPa-NR-CV
+ 1771:   Target density   : HF
+ 1772:   Grid             : analytical radial
+ 1773:   Estimator        : analytical-N2
+ 1774:   --- Wu-Yang (independent; no fallback) ---
+ 1775:   WY result usable : True
+ 1776:   WY converged     : True
+ 1777:   WY rho L2 error  : 3.505148e-02
+ 1778:   WY rho tolerance : 5.000000e-02
+ 1779:   WY rho passed    : True
+ 1780:   WY U             : 66.0526573960
+ 1781:   WY W_inf         : -19.9806514981
+ 1782:   WY W'inf         : 22.8281229837
+ 1783:   WY SCE estimator : akima
+ 1784:   WY W0            : -12.0896068585
+ 1785:   WY W0_prime      : -0.9106223430
+ 1786:   WY SPL corr.     : -0.4093028234
+ 1787:   WY genISI2 corr. : -0.3759330512
+ 1788:   WY E_SPL         : -128.9561557659
+ 1789:   WY E_genISI2     : -128.9227859937
+ 1790:   --- PyOEP (independent; no fallback) ---
+ 1791:   PyOEP method     : KSINV
+ 1792:   PyOEP orbital bs : 4ZaPa-NR-CV
+ 1793:   PyOEP OEP basis  : 4ZaPa-NR-CV
+ 1794:   PyOEP result usable: True
+ 1795:   PyOEP converged  : True
+ 1796:   PyOEP space sym  : False
+ 1797:   PyOEP rho L2     : 3.112173e-03
+ 1798:   PyOEP rho tolerance: 5.000000e-02
+ 1799:   PyOEP rho passed : True
+ 1800:   WY-PyOEP rho L2  : 3.526696e-02
+ 1801:   PyOEP W0         : -12.1049077715
+ 1802:   PyOEP W0_prime   : -0.9049029958
+ 1803:   PyOEP SPL corr.  : -0.4073673395
+ 1804:   PyOEP genISI2 corr: -0.3760409068
+ 1805:   PyOEP E_SPL      : -128.9542202820
+ 1806:   PyOEP E_genISI2  : -128.9228938493
+ 1807:   PyOEP W_inf      : -20.0723206170
+ 1808:   PyOEP W'inf      : 22.8281229837
+ 1809:   PyOEP SCE estim. : akima
+ 1810:   Reference W_inf  : -20.035000
+   ...
+ 1886: Running sweeps...
+ 1887: fail counts: [ 27  13   4  71   2 104  93   7  23  19   6   4   0  18  77   2  37   6
+ 1888:   17   8   6  21 166  63   5  24   3  33   0  41   2  24 120   3  29 118
+ 1889:  102  25  40 119 153   0  44 144  46   0  80   6  21   2   3  23   6   2
+ 1890:    1  32  19 177   9   0  79 238 254 214  22  30  28 282 482  56  21 534
+ 1891:  101 285 396   3   4  28 249 132 287   0  65 262 151 135  26 609  11 160]
+ 1892: fail counts below N_grid_end (Array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+ 1893:        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+ 1894:        34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+ 1895:        51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+ 1896:        68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84,
+ 1897:        85, 86, 87, 88, 89], dtype=int64),)
+ 1898: Minimizing over the different starting points...
+ 1899: Checking if grid points are local minima...
+ 1900: Calculating derivatives of co-motion functions...
+ 1901: Calculating first derivative of Vee...
+ 1902: Calculating second derivative of Vee...
+ 1903: End of optimization.
+ 1904:   [WY] Local minima: 1024/1024
+ 1905:   [T_ZP] Nel=10 -> local Hessian (n_skip=17)
+ 1906:   [T_ZP] Progress: 50/1024
+ 1907:   [T_ZP] Progress: 100/1024
+ 1908:   [T_ZP] Progress: 150/1024
+ 1909:   [T_ZP] Progress: 200/1024
+ 1910:   [T_ZP] Progress: 250/1024
+ 1911:   [T_ZP] Progress: 300/1024
+ 1912:   [T_ZP] Progress: 350/1024
+ 1913:   [T_ZP] Progress: 400/1024
+ 1914:   [T_ZP] Progress: 450/1024
+ 1915:   [T_ZP] Progress: 500/1024
+ 1916:   [T_ZP] Progress: 550/1024
+ 1917:   [T_ZP] Progress: 600/1024
+ 1918:   [T_ZP] Progress: 650/1024
+ 1919:   [T_ZP] Progress: 700/1024
+ 1920:   [T_ZP] Progress: 750/1024
+ 1921:   [T_ZP] Progress: 800/1024
+ 1922:   [T_ZP] Progress: 850/1024
+ 1923:   [T_ZP] Progress: 900/1024
+ 1924:   [T_ZP] Progress: 950/1024
+ 1925:   [T_ZP] Progress: 1000/1024
+ 1926:   [T_ZP] Local Hess W'inf = 22.8284718040
+ 1927:   [integrate-diag] f[:, Nel-2]: min|f|=1.538e+00, no points below 1e-3 -- regularization denominator is well-conditioned across the whole grid.
+ 1928:   [PYOEP/SCE] Native jaxsce optimization: Nel=10, grid=Ne, N_grid=1025
+ 1929: Setting up grid, calculating density and co-motion functions...
+   ...
+ 1986: ================================================================================
+ 1987: RESULTS for Ne  (Nel=10)
+ 1988: ================================================================================
+ 1989:   Basis            : 4ZaPa-NR-CV
+ 1990:   Target density   : CCSD(T)
+ 1991:   Grid             : analytical radial
+ 1992:   Estimator        : analytical-N2
+ 1993:   --- Wu-Yang (independent; no fallback) ---
+ 1994:   WY result usable : True
+ 1995:   WY converged     : True
+ 1996:   WY rho L2 error  : 2.595831e-02
+ 1997:   WY rho tolerance : 5.000000e-02
+ 1998:   WY rho passed    : True
+ 1999:   WY U             : 65.9829863601
+ 2000:   WY W_inf         : -20.0141810242
+ 2001:   WY W'inf         : 22.8284718040
+ 2002:   WY SCE estimator : akima
+ 2003:   WY W0            : -12.0719928704
+ 2004:   WY W0_prime      : -0.9250966313
+ 2005:   WY SPL corr.     : -0.4154255451
+ 2006:   WY genISI2 corr. : -0.3815339294
+ 2007:   WY E_SPL         : -128.9622784877
+ 2008:   WY E_genISI2     : -128.9283868720
+ 2009:   --- PyOEP (independent; no fallback) ---
+ 2010:   PyOEP method     : KSINV
+ 2011:   PyOEP orbital bs : 4ZaPa-NR-CV
+ 2012:   PyOEP OEP basis  : 4ZaPa-NR-CV
+ 2013:   PyOEP result usable: True
+ 2014:   PyOEP converged  : True
+ 2015:   PyOEP space sym  : False
+ 2016:   PyOEP rho L2     : 2.845010e-03
+ 2017:   PyOEP rho tolerance: 5.000000e-02
+ 2018:   PyOEP rho passed : True
+ 2019:   WY-PyOEP rho L2  : 2.619364e-02
+ 2020:   PyOEP W0         : -12.0793722530
+ 2021:   PyOEP W0_prime   : -0.9223933987
+ 2022:   PyOEP SPL corr.  : -0.4144692461
+ 2023:   PyOEP genISI2 corr: -0.3813744259
+ 2024:   PyOEP E_SPL      : -128.9613221886
+ 2025:   PyOEP E_genISI2  : -128.9282273685
+ 2026:   PyOEP W_inf      : -20.0481694450
+ 2027:   PyOEP W'inf      : 22.8284718040
+ 2028:   PyOEP SCE estim. : akima
+ 2029:   Reference W_inf  : -20.035000
+   ...
+ 2168: Sorting angles and energies...
+ 2169: Selecting unique starting points for sweep...
+ 2170: Number of unique starting points: [254 169 121],
+ 2171:                 fraction: [0.0254 0.0169 0.0121], N_select: 30
+ 2172: Running first sweep...
+ 2173: Running first sweep for starting point 1
+ 2174: Running first sweep for starting point 512
+ 2175: Running first sweep for starting point 1023
+ 2176: Running sweeps...
+ 2177: Sweep counts: [5 4 6 5 5 4 5 6 5 5 5 4 5 4 5 5 4 5 5 5 5 5 6 4 5 5 5 6 6 5 5 4 4 4 5 4 5
+ 2178:  4 4 4 4 4 5 5 4 5 4 4 5 4 5 4 4 4 4 5 4 5 4 5 4 4 4 5 4 8 4 4 4 4 5 5 4 4
+ 2179:  4 4 6 5 5 4 5 5 5 4 4 5 4 4 4 4]
+ 2180: Minimizing over the different starting points...
+ 2181: Checking if grid points are local minima...
+ 2182: Calculating derivatives of co-motion functions...
+ 2183: Calculating first derivative of Vee...
+ 2184: Calculating second derivative of Vee...
+ 2185: End of optimization.
+ 2186:   [WY] Local minima: 1024/1024
+ 2187:   [T_ZP] Nel=10 -> local Hessian (n_skip=17)
+ 2188:   [T_ZP] Progress: 50/1024
+ 2189:   [T_ZP] Progress: 100/1024
+ 2190:   [T_ZP] Progress: 150/1024
+ 2191:   [T_ZP] Progress: 200/1024
+ 2192:   [T_ZP] Progress: 250/1024
+ 2193:   [T_ZP] Progress: 300/1024
+ 2194:   [T_ZP] Progress: 350/1024
+ 2195:   [T_ZP] Progress: 400/1024
+ 2196:   [T_ZP] Progress: 450/1024
+ 2197:   [T_ZP] Progress: 500/1024
+ 2198:   [T_ZP] Progress: 550/1024
+ 2199:   [T_ZP] Progress: 600/1024
+ 2200:   [T_ZP] Progress: 650/1024
+ 2201:   [T_ZP] Progress: 700/1024
+ 2202:   [T_ZP] Progress: 750/1024
+ 2203:   [T_ZP] Progress: 800/1024
+ 2204:   [T_ZP] Progress: 850/1024
+ 2205:   [T_ZP] Progress: 900/1024
+ 2206:   [T_ZP] Progress: 950/1024
+ 2207:   [T_ZP] Progress: 1000/1024
+ 2208:   [T_ZP] Local Hess W'inf = 22.8289188960
+ 2209:   [integrate-diag] f[:, Nel-2]: min|f|=1.537e+00, no points below 1e-3 -- regularization denominator is well-conditioned across the whole grid.
+ 2210:   [PYOEP/SCE] Native jaxsce optimization: Nel=10, grid=Ne, N_grid=1025
+ 2211: Setting up grid, calculating density and co-motion functions...
+   ...
+ 2258: ================================================================================
+ 2259: RESULTS for Ne  (Nel=10)
+ 2260: ================================================================================
+ 2261:   Basis            : 5ZaPa-NR-CV
+ 2262:   Target density   : CCSDT
+ 2263:   Grid             : analytical radial
+ 2264:   Estimator        : analytical-N2
+ 2265:   --- Wu-Yang (independent; no fallback) ---
+ 2266:   WY result usable : True
+ 2267:   WY converged     : True
+ 2268:   WY rho L2 error  : 2.327744e-02
+ 2269:   WY rho tolerance : 5.000000e-02
+ 2270:   WY rho passed    : True
+ 2271:   WY U             : 65.9060026825
+ 2272:   WY W_inf         : -19.9352228463
+ 2273:   WY W'inf         : 22.8289188960
+ 2274:   WY SCE estimator : akima
+ 2275:   WY W0            : -12.0682349458
+ 2276:   WY W0_prime      : -0.9457430987
+ 2277:   WY SPL corr.     : -0.4233474912
+ 2278:   WY genISI2 corr. : -0.3857401423
+ 2279:   WY E_SPL         : -128.9703950520
+ 2280:   WY E_genISI2     : -128.9327877030
+ 2281:   --- PyOEP (independent; no fallback) ---
+ 2282:   PyOEP method     : KSINV
+ 2283:   PyOEP orbital bs : 5ZaPa-NR-CV
+ 2284:   PyOEP OEP basis  : 5ZaPa-NR-CV
+ 2285:   PyOEP result usable: True
+ 2286:   PyOEP converged  : True
+ 2287:   PyOEP space sym  : False
+ 2288:   PyOEP rho L2     : 6.378498e-03
+ 2289:   PyOEP rho tolerance: 5.000000e-02
+ 2290:   PyOEP rho passed : True
+ 2291:   WY-PyOEP rho L2  : 2.351153e-02
+ 2292:   PyOEP W0         : -12.0773129097
+ 2293:   PyOEP W0_prime   : -0.9464131548
+ 2294:   PyOEP SPL corr.  : -0.4241109774
+ 2295:   PyOEP genISI2 corr: -0.3882480145
+ 2296:   PyOEP E_SPL      : -128.9711585381
+ 2297:   PyOEP E_genISI2  : -128.9352955752
+ 2298:   PyOEP W_inf      : -20.0350156610
+ 2299:   PyOEP W'inf      : 22.8289188960
+ 2300:   PyOEP SCE estim. : akima
+ 2301:   Reference W_inf  : -20.035000
+   ...
+ 2465:    26    5   38    5    1    1    6   26  121  109   91    5   92   26
+ 2466:     5   76   19  107   14   29   60   21   10    4  216   30   13    0
+ 2467:    96  111   74   26   28   44   10    6   36  165  139   44   53    5
+ 2468:    33    2   10    8  278  192  275  197  127    1  134  294  367   15
+ 2469:    69    0    5    0   90    1   62    5    5   31   51  291 1001  195
+ 2470:   392  159   92  120   27    4]
+ 2471: fail counts below N_grid_end (Array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+ 2472:        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+ 2473:        34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+ 2474:        51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+ 2475:        68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84,
+ 2476:        85, 86, 87, 88, 89], dtype=int64),)
+ 2477: Minimizing over the different starting points...
+ 2478: Checking if grid points are local minima...
+ 2479: Calculating derivatives of co-motion functions...
+ 2480: Calculating first derivative of Vee...
+ 2481: Calculating second derivative of Vee...
+ 2482: End of optimization.
+ 2483:   [WY] Local minima: 1024/1024
+ 2484:   [T_ZP] Nel=10 -> local Hessian (n_skip=17)
+ 2485:   [T_ZP] Progress: 50/1024
+ 2486:   [T_ZP] Progress: 100/1024
+ 2487:   [T_ZP] Progress: 150/1024
+ 2488:   [T_ZP] Progress: 200/1024
+ 2489:   [T_ZP] Progress: 250/1024
+ 2490:   [T_ZP] Progress: 300/1024
+ 2491:   [T_ZP] Progress: 350/1024
+ 2492:   [T_ZP] Progress: 400/1024
+ 2493:   [T_ZP] Progress: 450/1024
+ 2494:   [T_ZP] Progress: 500/1024
+ 2495:   [T_ZP] Progress: 550/1024
+ 2496:   [T_ZP] Progress: 600/1024
+ 2497:   [T_ZP] Progress: 650/1024
+ 2498:   [T_ZP] Progress: 700/1024
+ 2499:   [T_ZP] Progress: 750/1024
+ 2500:   [T_ZP] Progress: 800/1024
+ 2501:   [T_ZP] Progress: 850/1024
+ 2502:   [T_ZP] Progress: 900/1024
+ 2503:   [T_ZP] Progress: 950/1024
+ 2504:   [T_ZP] Progress: 1000/1024
+ 2505:   [T_ZP] Local Hess W'inf = 22.8335708103
+ 2506:   [integrate-diag] f[:, Nel-2]: min|f|=1.535e+00, no points below 1e-3 -- regularization denominator is well-conditioned across the whole grid.
+ 2507:   [PYOEP/SCE] Native jaxsce optimization: Nel=10, grid=Ne, N_grid=1025
+ 2508: Setting up grid, calculating density and co-motion functions...
