@@ -1,0 +1,37 @@
+{
+  "title": "Probing the Accuracy of Adiabatic-Connection Exchange-Correlation Functionals with Highly Accurate, Strongly Correlated Electron Data",
+  "upload_type": "software",
+  "description": "Reference data, analysis and plotting scripts, data-generating drivers, and SCE code for benchmarking adiabatic-connection models and strong-interaction-limit approximations on Hookium, the He isoelectronic series (H- to Ar16+), H2 dissociation, and neutral atoms and ions.",
+  "creators": [
+    {
+      "name": "Chirchir, Gabriel",
+      "affiliation": "Nicolaus Copernicus University in Torun"
+    },
+    {
+      "name": "Bhattacharjee, Abhishek",
+      "affiliation": "National Institute of Science Education and Research, Homi Bhabha National Institute"
+    },
+    {
+      "name": "Jana, Subrata",
+      "affiliation": "Nicolaus Copernicus University in Torun"
+    },
+    {
+      "name": "Smiga, Szymon",
+      "affiliation": "Nicolaus Copernicus University in Torun"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "version": "2.0.0",
+  "language": "eng",
+  "keywords": [
+    "density functional theory",
+    "strictly correlated electrons",
+    "adiabatic connection",
+    "CCSD(T)",
+    "inverse Kohn-Sham",
+    "Wu-Yang",
+    "PyOEP",
+    "benchmark data"
+  ]
+}

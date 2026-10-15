@@ -1,0 +1,225 @@
+
+#!/usr/bin/env bash
+# =============================================================================
+#  create  —  per-(element, charge, basis) Slurm job submitter
+#
+#  Usage:  bash create <star.py>
+#
+#  For each active tuple in SYSTEM_BASIS:
+#    1. Create  ELEM[_minus|_plus]_BASIS/  subdirectory
+#    2. Copy star.py with SYSTEM_BASIS rewritten so only that tuple is active
+#    3. Patch slurm.sh: strip any stale --atom/--charge, then append the
+#       correct ones  (this prevents the "Mg runs in Ar folder" bug)
+#    4. Copy pyscf_ccsdt.py if present
+#    5. sbatch
+#
+#  SYSTEM_BASIS tuple format:  ("ELEM", CHARGE, SPIN, "BASIS")
+#    • ELEM  must be a plain element symbol  [A-Z][a-z]?
+#            NO LaTeX, NO ±, NO superscripts in the atom field
+#    • CHARGE  plain integer  (0 / -1 / 1 / …)
+# =============================================================================
+
+set -euo pipefail
+
+# ── argument check ────────────────────────────────────────────────────────────
+if [[ $# -ne 1 ]]; then
+    echo "Usage: $0 <star.py>"
+    exit 1
+fi
+INPUT_PY="$1"
+[[ -f "$INPUT_PY" ]] || { echo "ERROR: file not found: $INPUT_PY"; exit 1; }
+
+QKSH="$(pwd)/slurm.sh"
+[[ -f "$QKSH" ]] || { echo "ERROR: slurm.sh not found in $(pwd)"; exit 1; }
+
+# ── parse active SYSTEM_BASIS tuples ─────────────────────────────────────────
+# Matches uncommented lines that start with '(' inside the SYSTEM_BASIS block.
+mapfile -t ATOM_LINES < <(
+    awk '
+        /^SYSTEM_BASIS[[:space:]]*=/ { in_block=1; next }
+        in_block && /^[[:space:]]*\]/ { in_block=0; next }
+        in_block && /^[[:space:]]*\(/ { print }
+    ' "$INPUT_PY"
+)
+
+[[ ${#ATOM_LINES[@]} -gt 0 ]] || {
+    echo "ERROR: No active SYSTEM_BASIS entries found in $INPUT_PY"; exit 1; }
+
+echo "Found ${#ATOM_LINES[@]} active system(s):"
+
+declare -a ELEMENTS=()
+declare -a CHARGES=()
+declare -a BASES=()
+declare -a DIRNAMES=()
+declare -a ATOM_NAMES=()
+
+for line in "${ATOM_LINES[@]}"; do
+    # ── element: first quoted token, letters only ─────────────────────────
+    # Handles both single-letter (H, B, C, N, O, F) and two-letter (He, Li…)
+    elem=$(echo "$line" | sed -n 's/[^"]*"\([A-Z][a-z]\{0,2\}\)".*/\1/p' | head -1)
+
+    # ── charge: first integer after the element string ────────────────────
+    charge=$(echo "$line" \
+        | sed -n 's/.*"[A-Z][a-z]*",[[:space:]]*\(-\?[0-9][0-9]*\),.*/\1/p' \
+        | head -1)
+
+    # ── basis: last quoted string on the line ─────────────────────────────
+    basis=$(echo "$line" \
+        | sed -n 's/.*"\([^"]*\)"[[:space:]]*)[[:space:]]*,\?[[:space:]]*$/\1/p' \
+        | head -1)
+    # fallback
+    [[ -z "$basis" ]] && \
+        basis=$(echo "$line" | grep -o '"[^"]*"' | tail -1 | tr -d '"')
+
+    if [[ -z "$elem" ]]; then
+        echo "  WARNING: could not parse element from: $line — skipping"
+        continue
+    fi
+    [[ -z "$charge" ]] && charge=0
+    [[ -z "$basis"  ]] && basis="unknown"
+
+    # ── filesystem-safe directory name ───────────────────────────────────
+    clean_basis=$(echo "$basis" | sed 's/[^a-zA-Z0-9._-]/_/g')
+    if   [[ "$charge" == "0"  ]]; then dirname="${elem}_${clean_basis}"
+    elif [[ "$charge" == "-1" ]]; then dirname="${elem}_minus_${clean_basis}"
+    elif [[ "$charge" == "1"  ]]; then dirname="${elem}_plus_${clean_basis}"
+    elif [[ "$charge" -lt  0  ]]; then dirname="${elem}_minus${charge#-}_${clean_basis}"
+    else                               dirname="${elem}_plus${charge}_${clean_basis}"
+    fi
+
+    # ── atom label as atom_label() in star.py produces it ────────────────
+    if   [[ "$charge" == "0"  ]]; then atom_name="${elem}"
+    elif [[ "$charge" == "-1" ]]; then atom_name="${elem}-"
+    elif [[ "$charge" == "1"  ]]; then atom_name="${elem}+"
+    elif [[ "$charge" -lt  0  ]]; then atom_name="${elem}-${charge#-}"
+    else                               atom_name="${elem}+${charge}"
+    fi
+
+    ELEMENTS+=("$elem")
+    CHARGES+=("$charge")
+    BASES+=("$basis")
+    DIRNAMES+=("$dirname")
+    ATOM_NAMES+=("$atom_name")
+
+    echo "  ${atom_name}  charge=${charge}  basis=${basis}  →  ${dirname}/"
+done
+echo ""
+
+# ── helper: rewrite SYSTEM_BASIS so only ONE tuple is active ─────────────────
+make_atoms_block () {
+    local target_elem="$1" target_charge="$2" target_basis="$3"
+    local block="SYSTEM_BASIS = [\n"
+    for i in "${!ELEMENTS[@]}"; do
+        raw="${ATOM_LINES[$i]}"
+        stripped="${raw#"${raw%%[! ]*}"}"     # lstrip spaces
+        if [[ "${ELEMENTS[$i]}" == "$target_elem"   &&
+              "${CHARGES[$i]}"  == "$target_charge"  &&
+              "${BASES[$i]}"    == "$target_basis"  ]]; then
+            block+="    ${stripped}\n"
+        else
+            block+="    # ${stripped}\n"
+        fi
+    done
+    block+="]\n"
+    printf "%b" "$block"
+}
+
+# ── main loop ─────────────────────────────────────────────────────────────────
+BASEDIR="$(pwd)"
+PY_BASENAME="$(basename "$INPUT_PY")"
+
+for i in "${!ELEMENTS[@]}"; do
+    elem="${ELEMENTS[$i]}"
+    charge="${CHARGES[$i]}"
+    basis="${BASES[$i]}"
+    dirname="${DIRNAMES[$i]}"
+    atom_name="${ATOM_NAMES[$i]}"
+    WORKDIR="${BASEDIR}/${dirname}"
+
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "  System  : ${atom_name}  (charge=${charge}  basis=${basis})"
+    echo "  WorkDir : ${WORKDIR}"
+
+    mkdir -p "$WORKDIR"
+
+    # ── rewrite SYSTEM_BASIS in the copied Python file ────────────────────
+    TARGET_PY="${WORKDIR}/${PY_BASENAME}"
+    NEW_BLOCK="$(make_atoms_block "$elem" "$charge" "$basis")"
+
+    python3 - "${INPUT_PY}" "${TARGET_PY}" <<PYEOF
+import re, sys
+src, dst = sys.argv[1], sys.argv[2]
+lines = open(src).readlines()
+start = next(i for i, l in enumerate(lines) if re.match(r'^SYSTEM_BASIS\s*=', l))
+end   = start + 1
+while end < len(lines):
+    if re.match(r'^\s*\]', lines[end]):
+        break
+    end += 1
+new_block = """${NEW_BLOCK}"""
+with open(dst, 'w') as fh:
+    fh.writelines(lines[:start])
+    fh.write(new_block)
+    fh.writelines(lines[end + 1:])
+print(f"  [python] rewrote SYSTEM_BASIS (lines {start}–{end}) → {dst}")
+PYEOF
+
+    echo "  Wrote   : ${TARGET_PY}"
+    echo "  Active SYSTEM_BASIS in ${TARGET_PY}:"
+    awk '
+        /^SYSTEM_BASIS[[:space:]]*=/ { p=1 }
+        p && /^[[:space:]]*\(/ { print "    " $0 }
+        p && /^\]/ { p=0 }
+    ' "$TARGET_PY"
+
+    # ── copy helper if present ────────────────────────────────────────────
+    [[ -f "${BASEDIR}/pyscf_ccsdt.py" ]] && \
+        cp "${BASEDIR}/pyscf_ccsdt.py" "${WORKDIR}/pyscf_ccsdt.py" && \
+        echo "  Copied  : pyscf_ccsdt.py"
+
+    # ── write per-job slurm.sh ────────────────────────────────────────────
+    TARGET_SLURM="${WORKDIR}/slurm.sh"
+    cp "$QKSH" "$TARGET_SLURM"
+
+    PY_CALL_PAT="python[3]?[[:space:]].*${PY_BASENAME}"
+
+    if grep -qE "$PY_CALL_PAT" "$TARGET_SLURM" 2>/dev/null; then
+        # Step 1: strip any stale --atom / --charge flags that may already
+        #         be in the copied slurm.sh (prevents double-injection)
+        sed -i -E \
+            's/(python[3]?[[:space:]]+'"${PY_BASENAME}"'[^&\n]*)[[:space:]]--atom[[:space:]]+[A-Za-z]+/\1/g' \
+            "$TARGET_SLURM"
+        sed -i -E \
+            's/(python[3]?[[:space:]]+'"${PY_BASENAME}"'[^&\n]*)[[:space:]]--charge[[:space:]]+-?[0-9]+/\1/g' \
+            "$TARGET_SLURM"
+        # Step 2: append the correct --atom / --charge for this job
+        sed -i -E \
+            "s|(python[3]?[[:space:]]+${PY_BASENAME})([^&\n]*)|\1\2 --atom ${elem} --charge ${charge}|" \
+            "$TARGET_SLURM"
+        echo "  Patched slurm.sh  →  --atom ${elem} --charge ${charge}"
+    else
+        # Fallback: add a fresh invocation
+        {
+            echo ""
+            echo "# auto-added by create for ${atom_name} (${basis})"
+            echo "python3 ${PY_BASENAME} --atom ${elem} --charge ${charge}"
+        } >> "$TARGET_SLURM"
+        echo "  Appended to slurm.sh: python3 ${PY_BASENAME} --atom ${elem} --charge ${charge}"
+    fi
+
+    # ── verify the final python invocation looks right ────────────────────
+    echo "  Python call in slurm.sh:"
+    grep -E "$PY_CALL_PAT" "$TARGET_SLURM" | sed 's/^/    /'
+
+    # ── submit ────────────────────────────────────────────────────────────
+    echo "  Submitting from ${WORKDIR} …"
+    pushd "$WORKDIR" > /dev/null
+    JOB_ID="$(sbatch slurm.sh)"
+    popd > /dev/null
+    echo "  ${JOB_ID}"
+    echo ""
+done
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "  All done.  ${#ELEMENTS[@]} job(s) submitted."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

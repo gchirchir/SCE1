@@ -1,0 +1,139 @@
+/var/spool/slurmd/r10-5/job5284048/slurm_script: line 11: /home/<user>/miniconda3/etc/profile.d/conda.sh: No such file or directory
+/var/spool/slurmd/r10-5/job5284048/slurm_script: line 12: conda: command not found
+[jax] Using platform : GPU
+[jax] Active backend : GPU
+[basis] basis_set_exchange available
+
+============================================================
+  Batch run -- density=CCSD(T)  grid=Ne  N_grid=1025
+  Systems: 1
+============================================================
+
+────────────────────────────────────────────────────────────
+  > Running Ne/3ZaPa-NR-CV  (charge=0, spin=0)
+────────────────────────────────────────────────────────────
+  [basis] fetched '3ZaPa-NR-CV' for Ne
+  Using CCSD(T) relaxed density
+    Running HF for CCSD(T)...
+    Running CCSD for CCSD(T)...
+    Computing ERIs...
+    E(CCSD(T)) = -128.8928152582
+    Solving lambda equations...
+cycle = 1  norm(lambda1,lambda2) = 0.0130321
+cycle = 2  norm(lambda1,lambda2) = 0.00422471
+cycle = 3  norm(lambda1,lambda2) = 0.0013794
+cycle = 4  norm(lambda1,lambda2) = 9.67678e-05
+cycle = 5  norm(lambda1,lambda2) = 3.67625e-05
+cycle = 6  norm(lambda1,lambda2) = 3.5901e-06
+cycle = 7  norm(lambda1,lambda2) = 1.07128e-06
+cycle = 8  norm(lambda1,lambda2) = 9.97815e-08
+cycle = 9  norm(lambda1,lambda2) = 2.16121e-08
+cycle = 10  norm(lambda1,lambda2) = 1.26726e-08
+cycle = 11  norm(lambda1,lambda2) = 9.77764e-09
+    RHF T3-relaxed density OK
+    CCSD(T) density built successfully
+  Nel = 10, U = 66.0057143980
+  [PC4-Updated] W_inf_PC4=-19.0122435242  Wp_inf_PC4=13.7494870040
+  [PC4-Updated] P0=23.1132865864  P1=11.2964240775  P2=14.5801073732
+  [PC4-Updated] I0(LDA_int)=14.9162652637  A=-1.4507927586  C=0.5116633540
+  [PC4-Updated] Wp_inf_LDA=11.8262217361  Wp_GE4_raw=19.450421
+  [PC4-Updated] Padé W:   F_sat=0.55 b1=1.0 b2=1.5980 a1=0.8597 a2=0.8789
+  [PC4-Updated] Padé Wp:  F_sat=1.2 b1=0.6 b2=4.6808 a1=1.0911 a2=5.6170
+  [PC4-Updated] C_wp=0.51166335
+  Running optimization...
+Setting up grid, calculating density and co-motion functions...
+/home/<user>/pyscf/gpu/jaxsce/jaxsce/densities/pyscf.py:572: RuntimeWarning: some derivatives were zero
+  return scipy.optimize.newton(
+Calculating density, derivatives and coNe integral...
+Calculating last point separately...
+Running random starting calculations for starting points...
+Sorting angles and energies...
+Selecting unique starting points for sweep...
+Number of unique starting points: [256 189 110],
+                fraction: [0.0256 0.0189 0.011 ], N_select: 30
+Running first sweep...
+Running first sweep for starting point 1
+Running first sweep for starting point 512
+Running first sweep for starting point 1023
+Running sweeps...
+Sweep counts: [5 4 5 5 4 5 4 7 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 4 5 5 5 5 5 5 4 4 5 4 5 4 4
+ 5 4 4 4 4 6 4 5 5 5 5 4 4 5 4 5 5 5 5 5 4 6 5 4 4 4 5 4 8 4 4 4 4 4 7 5 5
+ 4 5 6 4 4 6 6 4 4 4 4 4 4 4 4 4]
+Minimizing over the different starting points...
+Checking if grid points are local minima...
+Calculating derivatives of co-motion functions...
+Calculating first derivative of Vee...
+Calculating second derivative of Vee...
+End of optimization.
+  [Ne] Local minimum achieved  : True  (1024/1024 grid points are local minima)
+  [Ne] Convergence threshold   : True  (src = local_minima array,  tol = 1e-06)
+  Computing T_ZP (W'inf)...
+  [T_ZP] Nel=10 -> local Hessian (n_skip=17)
+  [T_ZP] Local Hessian  Nel=10  pts=1024  n_skip=17
+  [T_ZP] Progress: 50/1024
+  [T_ZP] Progress: 100/1024
+  [T_ZP] Progress: 150/1024
+  [T_ZP] Progress: 200/1024
+  [T_ZP] Progress: 250/1024
+  [T_ZP] Progress: 300/1024
+  [T_ZP] Progress: 350/1024
+  [T_ZP] Progress: 400/1024
+  [T_ZP] Progress: 450/1024
+  [T_ZP] Progress: 500/1024
+  [T_ZP] Progress: 550/1024
+  [T_ZP] Progress: 600/1024
+  [T_ZP] Progress: 650/1024
+  [T_ZP] Progress: 700/1024
+  [T_ZP] Progress: 750/1024
+  [T_ZP] Progress: 800/1024
+  [T_ZP] Progress: 850/1024
+  [T_ZP] Progress: 900/1024
+  [T_ZP] Progress: 950/1024
+  [T_ZP] Progress: 1000/1024
+  [T_ZP] Local Hess  W'inf PRL    = 22.8250952234
+  [T_ZP] Local Hess  W'inf legacy = 11.4125476117
+  Computing integrals...
+  [Ne] [sanitize] All Vee arrays are finite — no repair needed.
+
+======================================================================
+RESULTS for Ne  (Nel=10)
+======================================================================
+  Basis            : 3ZaPa-NR-CV
+  Density          : CCSD(T)
+  Grid             : Ne
+  Estimator        : akima
+  U                : 66.0057143980
+  W_inf_SCE        : -20.0469894095
+  W_inf_PC4        : -19.0122435242
+  Wp_inf_SCE       : 22.8250952234
+  Wp_inf_legacy    : 11.4125476117
+  Lambda           : 1.3439684167
+  B                : 0.0048269346
+  I0(LDA_int)      : 14.9162652637
+  A                : -1.4507927586
+  C                : 1.5349900619
+  I2_int           : 8.0931793699
+  I3_int           : 86.9174571856
+  P0               : 23.1132865864
+  P1               : 11.2964240775
+  P2               : 14.5801073732
+  Reference W_inf  : -20.035000
+  Error W_inf      : -0.011989
+  Reference W'inf  : 22.000000
+  Error W'inf(PRL) : 0.825095
+  Time             : 759.8s
+======================================================================
+
+
+============================================================
+  BATCH SUMMARY   (total wall time: 759.8s)
+============================================================
+  System                    W_inf_SCE    W_inf_PC4    Err_W_PC4   Wp_inf_SCE   Wp_inf_LDA    Err_LDA   Wp_inf_PC4   Err_Wp_PC4       Lambda            B           I0            A            C       I2_int       I3_int           P0           P1           P2     Time_s
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Ne/3ZaPa-NR-CV           -20.046989   -19.012244     1.034746    22.825095    11.826222   -10.998873    13.749487    -9.075608     1.343968     0.004827    14.916265    -1.450793     1.534990     8.093179    86.917457    23.113287    11.296424    14.580107   759.809974
+
+  Saved batch summary CSV: data/batch_summary_pc4.csv
+
+  Done. 1/1 systems completed.
+============================================================
+

@@ -1,0 +1,18 @@
+# Tested together (Python 3.12, CPU) on 2026-09-24:
+jax[cpu]==0.4.38
+jaxlib==0.4.38
+jaxopt==0.8.5
+numpy==2.5.3
+scipy==1.16.3            # must be <1.17: KS-pies imports scipy.special.sph_harm
+pyscf==2.14.0
+basis-set-exchange==0.12
+dataclasses-json==0.6.7
+sympy==1.14.0
+sympy2jax==0.0.8
+tensorflow-probability==0.25.0   # needs jax <= 0.4.x
+psutil==7.2.2
+pandas==3.0.6
+matplotlib==3.11.2
+pytest
+# KS-pies (kspies, used by the Wu-Yang / Hookium / H2 drivers) cannot be built
+# from PyPI with current NumPy; see README.md "Installing KS-pies".
