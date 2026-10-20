@@ -155,7 +155,7 @@ def plot_source(mare_spl, mare_gen, source, output_dir):
         facecolor="white", edgecolor="black", framealpha=1.0,
         fontsize=30, handlelength=1.35, handleheight=1.1,
         handletextpad=0.45, columnspacing=1.7, borderpad=0.45,
-        title="PyOEP" if source == "PYOEP" else "WY", title_fontsize=30,
+        title=None, title_fontsize=30,
     )
     legend.get_frame().set_linewidth(1.2)
     fig.tight_layout(rect=[0, 0, 1, 0.95])

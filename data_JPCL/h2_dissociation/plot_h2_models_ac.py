@@ -31,7 +31,7 @@ import plot_final_wy_pyoep as pw
 HERE = Path(__file__).resolve().parent
 CUTOFF = 7.66262          # PyOEP reliability cutoff used for Figs. 7-9
 MODELS = ["LDA", "PBE", "TPSS", "R2SCAN", "PC", "mPC", "hPC", "fPC", "ePC"]
-LABELS = ["SCE", "LDA", "PBE", "TPSS", r"R$^2$SCAN", "PC", "mPC", "hPC", "fPC", "ePC"]
+LABELS = ["SCE", "LDA", "PBE", "TPSS", r"R$^2$SCAN", "PC", "mPC", "hPC", "fPC", "ePC"]  # as in Figs. 2 and 5
 
 
 def model_curves(fr):
@@ -89,21 +89,52 @@ def main():
           " PCME = mean of E(model) - E(exact SCE))" % CUTOFF)
     print(t.round(2).to_string())
 
-    plt.rcParams.update({"font.family": "serif", "mathtext.fontset": "stix",
-                         "font.size": 15, "axes.linewidth": 1.3})
-    fig, ax = plt.subplots(figsize=(10, 6))
+    # same style as main-text Figs. 2 and 5 (plot_he_series_mare_spl_genisi2_wy_pyoep.py)
+    plt.rcParams.update({
+        "font.family": "serif", "font.serif": ["Times New Roman", "Times", "DejaVu Serif"],
+        "mathtext.fontset": "stix", "axes.labelsize": 40, "xtick.labelsize": 34,
+        "ytick.labelsize": 34, "legend.fontsize": 30, "axes.linewidth": 2.5,
+        "xtick.major.width": 2.5, "ytick.major.width": 2.5, "xtick.minor.width": 1.5,
+        "ytick.minor.width": 1.5, "xtick.major.size": 12, "ytick.major.size": 12,
+        "xtick.minor.size": 6, "ytick.minor.size": 6, "xtick.direction": "out",
+        "ytick.direction": "out", "hatch.linewidth": 1.8, "savefig.dpi": 800,
+        "savefig.bbox": "tight"})
+    from matplotlib import ticker, transforms
+    import matplotlib.patches as mpatches
+    fig, ax = plt.subplots(figsize=(12, 12))
     x = np.arange(len(t)); w = 0.38
-    ax.bar(x - w / 2, t["MAE_SPL"], w, color="#334155", edgecolor="black",
-           hatch="////", label="SPL", zorder=3)
-    ax.bar(x + w / 2, t["MAE_gen"], w, color="#d81b60", edgecolor="black",
-           hatch="\\\\", label="genISI2", zorder=3)
+    ax.bar(x - w / 2, t["MAE_SPL"], w, color="#334155", edgecolor="black", linewidth=1.5,
+           hatch="////", alpha=0.94, zorder=3)
+    ax.bar(x + w / 2, t["MAE_gen"], w, color="#d81b60", edgecolor="black", linewidth=1.5,
+           hatch="\\\\", alpha=0.94, zorder=3)
+    ax.set_xlim(-0.5, len(t) - 0.5)
     ax.set_yscale("log")
-    ax.set_ylabel(r"MAE vs FCI  [m$E_H$]")
-    ax.set_xticks(x); ax.set_xticklabels(LABELS, rotation=35, ha="right")
-    ax.axvline(0.5, color="#333333", ls="--", lw=1.5)
-    ax.grid(True, axis="y", which="both", ls=":", lw=0.5, alpha=0.5)
-    ax.legend(frameon=False, ncol=2, loc="lower center", bbox_to_anchor=(0.5, 1.0))
-    fig.tight_layout()
+    ax.set_ylim(1.0, 700.0)  # headroom above the bars for the legend
+    ax.yaxis.set_major_locator(ticker.FixedLocator([1, 2, 5, 10, 20, 50, 100, 200, 500]))
+    ax.yaxis.set_major_formatter(ticker.FormatStrFormatter("%g"))
+    ax.yaxis.set_minor_formatter(ticker.NullFormatter())
+    ax.axvline(0.5, color="#333333", linestyle="--", linewidth=2.6, zorder=4)
+    ax.axvline(4.5, color="#333333", linestyle="--", linewidth=2.6, zorder=4)
+    ax.tick_params(axis="x", which="major", top=False, bottom=True)
+    trans = transforms.blended_transform_factory(ax.transData, ax.transAxes)
+    ax.text(2.5, 1.04, "Semilocal", transform=trans, ha="center", va="bottom",
+            fontsize=40, fontweight="bold")
+    ax.text(7.0, 1.04, "PC", transform=trans, ha="center", va="bottom",
+            fontsize=40, fontweight="bold")
+    ax.set_ylabel(r"MAE vs FCI [m$E_h$]", labelpad=20)
+    ax.set_xticks(x)
+    ax.set_xticklabels(LABELS, rotation=40, ha="right", rotation_mode="anchor")
+    ax.grid(True, axis="y", which="major", linestyle="--", linewidth=0.7, alpha=0.4, zorder=0)
+    ax.grid(True, axis="y", which="minor", linestyle=":", linewidth=0.4, alpha=0.25, zorder=0)
+    p_spl = mpatches.Patch(facecolor="#334155", edgecolor="black", linewidth=1.5, hatch="////",
+                           alpha=0.94, label="SPL")
+    p_gen = mpatches.Patch(facecolor="#d81b60", edgecolor="black", linewidth=1.5,
+                           hatch="\\\\", alpha=0.94, label="genISI2")
+    leg = ax.legend(handles=[p_spl, p_gen], loc="upper left", bbox_to_anchor=(0.10, 1.0),
+                    ncol=2, frameon=True, framealpha=0.0, handlelength=2.0, handleheight=1.2,
+                    title=None, title_fontsize=30)
+    leg.get_frame().set_linewidth(0.0)
+    fig.tight_layout(rect=[0, 0, 1, 0.95])
     for ext in ("eps", "png"):
         fig.savefig(HERE / f"H2_models_AC_MAE_PYOEP.{ext}", dpi=300)
 

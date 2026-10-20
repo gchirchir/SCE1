@@ -180,7 +180,7 @@ def plot_source(result, source, output_dir):
             spine.set_linewidth(1.8)
         legend = inset.legend(loc="best", frameon=True, facecolor="white",
                               edgecolor="black", fontsize=24, handlelength=1.6,
-                              title=source_label)
+                              title=None)
         legend.get_title().set_fontsize(24)
         legend.get_title().set_fontfamily("serif")
         for text in legend.get_texts():

@@ -20,14 +20,25 @@ ORDER = ["H", "H-", "He", "Li", "Li-", "Be", "B", "C", "N", "O", "F", "F-",
          "Ne", "Na", "Mg", "Cl-", "Ar", "Ca", "Zn"]
 LABELS = {s: (s[:-1] + r"$^-$" if s.endswith("-") else s) for s in ORDER}
 MODELS = ["LDA", "PBE", "TPSS", "R2SCAN", "PC", "mPC", "hPC", "fPC", "ePC"]
-NAMES = {"R2SCAN": r"r$^2$SCAN"}
-STYLE = {  # semilocal: dashed/open markers; PC family: solid/filled markers
-    "LDA": ("#7f7f7f", "--", "o", "none"), "PBE": ("#17becf", "--", "s", "none"),
-    "TPSS": ("#2ca02c", "--", "^", "none"), "R2SCAN": ("#9467bd", "--", "v", "none"),
-    "PC": ("#ff7f0e", "-", "o", None), "mPC": ("#8c564b", "-", "s", None),
-    "hPC": ("#d62728", "-", "D", None), "fPC": ("#e377c2", "-", "^", None),
-    "ePC": ("#1f77b4", "-", "P", None),
-}
+# same colours, markers, line styles and fonts as SI Figs. S1/S2 (plot_he_delta_ingredients.py)
+NAMES = ["LDA", "PBE", "TPSS", r"R$^2$SCAN", "PC", "mPC", "hPC", "fPC", "ePC"]
+MARKERS = ["s", "^", "D", "v", "P", "X", "*", "h", ">"]
+LSTYLE = ["-", "--", "-.", ":", "-", "--", "-.", ":", "-"]
+COLORS = plt.cm.tab10(np.linspace(0, 1, 10))
+
+
+def style():
+    plt.rcParams.update({
+        "font.family": "serif",
+        "font.serif": ["Times New Roman", "Times", "DejaVu Serif"],
+        "mathtext.fontset": "stix",
+        "axes.labelsize": 22, "xtick.labelsize": 18, "ytick.labelsize": 18,
+        "legend.fontsize": 14, "axes.linewidth": 1.6,
+        "xtick.major.width": 1.6, "ytick.major.width": 1.6,
+        "xtick.direction": "in", "ytick.direction": "in",
+        "xtick.top": True, "ytick.right": True,
+        "savefig.dpi": 600, "savefig.bbox": "tight",
+    })
 
 
 def load():
@@ -51,28 +62,26 @@ def main():
     d = load()
     ew = rel_err(d, "W_inf", "PYOEP_Winf")
     ewp = rel_err(d, "Wp_inf", "PYOEP_T_ZP_prl")
-    plt.rcParams.update({"font.family": "serif", "mathtext.fontset": "stix",
-                         "font.size": 13, "axes.linewidth": 1.2})
-    fig, axes = plt.subplots(2, 1, figsize=(11, 10), sharex=True)
+    style()
+    fig, axes = plt.subplots(2, 1, figsize=(9, 11), sharex=True)
     x = np.arange(len(ORDER))
-    for ax, e, lab in ((axes[0], ew, r"$\Delta W_\infty\,/\,|W_{\infty,\rm SCE}|$  [%]"),
-                       (axes[1], ewp, r"$\Delta W'_\infty\,/\,W'_{\infty,\rm SCE}$  [%]")):
-        ax.axhline(0, color="black", lw=1.0, zorder=1)
-        for m in MODELS:
-            c, ls, mk, fc = STYLE[m]
-            ax.plot(x, e[m].values, ls=ls, marker=mk, color=c, lw=1.6, ms=7,
-                    mfc=(fc if fc is not None else c), mec=c, label=NAMES.get(m, m),
-                    zorder=3)
+    for ax, e, lab in ((axes[0], ew, r"$\Delta W_\infty/|W_\infty^{\rm SCE}|$ (%)"),
+                       (axes[1], ewp, r"$\Delta W'_\infty/W_\infty^{\prime\,\rm SCE}$ (%)")):
+        for m, name, mk, ls, c in zip(MODELS, NAMES, MARKERS, LSTYLE, COLORS):
+            ax.plot(x, e[m].values, marker=mk, ls=ls, color=c, lw=2.0, ms=8,
+                    markeredgewidth=0.8, label=name)
+        ax.axhline(0.0, color="0.3", lw=1.2)
         ax.set_ylabel(lab)
-        ax.grid(True, axis="y", ls=":", lw=0.6, alpha=0.6)
-        for xv in (2.5, 12.5):  # shell closures He | Li..Ne | Na..
-            ax.axvline(xv, color="#999999", lw=0.8, ls=":", zorder=0)
-    axes[0].text(0.01, 0.95, "(a)", transform=axes[0].transAxes, va="top", fontsize=15)
-    axes[1].text(0.01, 0.95, "(b)", transform=axes[1].transAxes, va="top", fontsize=15)
+        ax.grid(True, ls=":", lw=0.5, alpha=0.4)
+        for xv in (2.5, 12.5):  # rows of the periodic table: H-He | Li-Ne | Na-Zn
+            ax.axvline(xv, color="0.5", lw=1.0, ls=":", zorder=0)
+    axes[0].text(0.02, 0.94, "(a)", transform=axes[0].transAxes, fontsize=20, fontweight="bold")
+    axes[1].text(0.02, 0.94, "(b)", transform=axes[1].transAxes, fontsize=20, fontweight="bold")
     axes[1].set_xticks(x)
-    axes[1].set_xticklabels([LABELS[s] for s in ORDER])
+    axes[1].set_xticklabels([LABELS[s] for s in ORDER], rotation=90)
     axes[1].set_xlabel("system (ordered by nuclear charge $Z$)")
-    axes[0].legend(ncol=5, fontsize=11, frameon=True, loc="lower right")
+    axes[0].legend(ncol=3, frameon=True, framealpha=0.92, loc="lower right")
+    # No figure title: the panel is described in the SI caption.
     fig.tight_layout()
     for ext in ("eps", "png"):
         fig.savefig(HERE / f"atoms_model_errors_PYOEP.{ext}", dpi=300)
