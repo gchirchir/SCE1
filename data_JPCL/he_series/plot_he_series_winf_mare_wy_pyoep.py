@@ -97,7 +97,7 @@ def plot_source(w_mare, wp_mare, source, output_dir):
                        edgecolor="black", framealpha=0.92, handlelength=1.0,
                        handleheight=0.3, handletextpad=0.5, columnspacing=2.0,
                        borderpad=0.55, labelspacing=0.6,
-                       title="PyOEP" if source == "PYOEP" else "WY", title_fontsize=30)
+                       title=None, title_fontsize=30)
     legend.get_frame().set_linewidth(0.01)
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     out = output_dir / f"HE_SERIES_1_{source}.eps"

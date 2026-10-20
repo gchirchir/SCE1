@@ -106,7 +106,7 @@ def plot_source(mare_spl, mare_gen, source, output_dir):
                        edgecolor="black", framealpha=0.0, handlelength=2.0,
                        handleheight=1.2, handletextpad=0.5, columnspacing=2.0,
                        borderpad=0.55, labelspacing=0.6,
-                       title="PyOEP" if source == "PYOEP" else "WY", title_fontsize=30)
+                       title=None, title_fontsize=30)
     legend.get_frame().set_linewidth(0.0)
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     out = output_dir / f"He_series_MARE_SPL_genISI2_{source}.eps"

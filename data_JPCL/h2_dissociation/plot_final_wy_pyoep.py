@@ -183,7 +183,7 @@ def save_independent_plot(frame, solver, curves, tail_curves=None, cutoff=None):
         )
     solver_title = "PyOEP" if solver == "PYOEP" else solver
     legend = ax.legend(
-        loc="upper right", bbox_to_anchor=(0.98, 0.98), title=solver_title,
+        loc="upper right", bbox_to_anchor=(0.98, 0.98), title=None,
         ncol=2,
         frameon=True,
         framealpha=1.0, edgecolor="black", facecolor="white",

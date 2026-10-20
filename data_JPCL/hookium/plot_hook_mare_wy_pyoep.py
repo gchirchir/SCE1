@@ -106,7 +106,7 @@ def plot_source(w_mare, wp_mare, source, output_dir):
                        loc="upper left", ncol=1, frameon=True, facecolor="white",
                        edgecolor="black", framealpha=0.92, handlelength=2.0,
                        handleheight=1.2, handletextpad=0.5, columnspacing=2.0,
-                       borderpad=0.55, labelspacing=0.6, title="PyOEP" if source == "PYOEP" else "WY",
+                       borderpad=0.55, labelspacing=0.6, title=None,
                        title_fontsize=30)
     legend.get_frame().set_linewidth(0.01)
     fig.tight_layout(rect=[0, 0, 1, 0.95])

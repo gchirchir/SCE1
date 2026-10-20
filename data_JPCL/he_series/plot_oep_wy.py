@@ -132,7 +132,7 @@ def plot_source(values, density, source, outdir):
         source_label = "PyOEP" if source == "PYOEP" else "WY"
         inset_legend = inset.legend(
             loc="best", frameon=True, facecolor="white", edgecolor="black",
-            fontsize=24, handlelength=1.6, title=source_label,
+            fontsize=24, handlelength=1.6, title=None,
         )
         # Matplotlib styles legend titles separately; force identical text
         # properties for the source name and SPL/genISI2 method label.
