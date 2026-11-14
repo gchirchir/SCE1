@@ -120,9 +120,8 @@ contain only the rows and columns used by the figures and tables: the FCI rows
 (Hookium, He series, H₂) and the CCSD(T)/CCSD rows (atoms/ions); the HF-density
 rows of the original runs are not included.
 
-For H₂, use `PYOEP_winf_cyl` rather than `PYOEP_W_inf_SCE` as the exact
-W∞: only the dual-Kantorovich value approaches the correct dissociation limit
-(−0.625 E_H). Both `3.py` and `4.py` drop one isolated single-row glitch in their
+For H₂, the exact W∞ is the dual-Kantorovich `PYOEP_winf_cyl`, which approaches
+the correct dissociation limit (−0.625 E_H). Both `3.py` and `4.py` drop one isolated single-row glitch in their
 reference column (R = 8.9667 a₀) and print a warning when they do.
 
 The extended H₂ scan is archived in `h2_dissociation/h2_extended_tail.csv`.
@@ -131,9 +130,9 @@ W∞ = −0.6255029547 E_H, selected from the R = 10–25 a₀ rows that pass th
 WY density-quality check. The SI reference-table generator includes this
 point before the exact dissociation-limit row.
 
-**Do not use `PYOEP_Wp_inf_SCE` in the H₂ file.** It is broken (values up to
-~1.5 × 10⁵ E_H from a known problem in that Hessian route). Figure 9 uses
-`PYOEP_winf_prime_rmzpe_cyl` instead, as noted in `4.py`. For H₂ the PyOEP
+For H₂ the exact W′∞ is the restricted-mode `PYOEP_winf_prime_rmzpe_cyl`
+(Figure 9, `4.py`); the radial-Hessian columns of the original runs are not
+included because that route fails for H₂. For H₂ the PyOEP
 inversion is reliable only up to R ≈ 7.7 a₀; beyond that, the curves in Figure 7
 are cut, as stated in the manuscript.
 
