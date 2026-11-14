@@ -97,10 +97,10 @@ level); columns are grouped by prefix.
 
 | File | Rows | Contents |
 |---|---|---|
-| `hookium/merged_hooke_results.csv` | 39 | Hookium atom at 20 confinement frequencies ω = 0.03–1000 a.u. (`omega`), HF and FCI reference densities (`density_type`) |
-| `he_series/merged_results.csv` | 36 | He isoelectronic series, H⁻ to Ar¹⁶⁺ (Z = 1–18; `system` gives the element: H-, He, Li, …, Ar), HF and FCI densities, 5ZaPa-NR-CV basis, recomputed in the revision with the density-adapted radial grid (see below) |
+| `hookium/merged_hooke_results.csv` | 20 | Hookium atom at 20 confinement frequencies ω = 0.03–1000 a.u. (`omega`), FCI reference density (`density_type`) |
+| `he_series/merged_results.csv` | 18 | He isoelectronic series, H⁻ to Ar¹⁶⁺ (Z = 1–18; `system` gives the element: H-, He, Li, …, Ar), FCI density, 5ZaPa-NR-CV basis, recomputed in the revision with the density-adapted radial grid (see below) |
 | `atoms_ions/merged_results.csv` | 19 | Neutral atoms and anions H to Zn (the 19 systems in the Figure 10 statistics), relaxed CCSD(T) or CCSD densities |
-| `h2_dissociation/final_merged_dou_sig.csv` | 592 | H₂ at bond lengths R = 0.3 a₀ upward (`R_bohr`), HF and FCI densities |
+| `h2_dissociation/final_merged_dou_sig.csv` | 296 | H₂ at bond lengths R = 0.3 a₀ upward (`R_bohr`), FCI density |
 
 Key columns. `<model>` is one of LDA, PBE, TPSS, R2SCAN, PC, mPC, hPC, fPC, ePC.
 The prefix `PYOEP_` marks quantities evaluated on the PyOEP-inverted reference
@@ -113,16 +113,23 @@ density, which is used for every figure.
 | Exact SCE W′∞[ρ] | `PYOEP_T_ZP_prl` (despite the name, computed with the ¼ prefactor, the PRA convention of SI Section S9, as used throughout the manuscript) | `PYOEP_winf_prime_rmzpe_cyl` (restricted-mode ZPE, used by Figure 9, `4.py`) |
 | Weak-coupling input W₀ = E_x, W′₀ = 2E_c^GL2 | `PYOEP_W0`, `PYOEP_W0_prime` | same |
 | Reference correlation energy | `PYOEP_E_c` (FCI or CCSD(T)/CCSD) | `E_ref` (FCI total energy) |
-| Inversion quality | `PYOEP_converged`, `PYOEP_rho_diff` | same |
+| Inversion convergence flag | -- | `PYOEP_converged` (used to cut the H₂ energy curves) |
 
-The reference-density level is in `density_type` (HF, FCI, CCSD, CCSDT). The
-figures use the FCI rows (Hookium, He series, H₂) and the CCSD(T)/CCSD rows
-(atoms/ions).
+The reference-density level is in `density_type` (FCI, CCSD, CCSDT). The CSV files
+contain only the rows and columns used by the figures and tables: the FCI rows
+(Hookium, He series, H₂) and the CCSD(T)/CCSD rows (atoms/ions); the HF-density
+rows of the original runs are not included.
 
 For H₂, use `PYOEP_winf_cyl` rather than `PYOEP_W_inf_SCE` as the exact
 W∞: only the dual-Kantorovich value approaches the correct dissociation limit
 (−0.625 E_H). Both `3.py` and `4.py` drop one isolated single-row glitch in their
 reference column (R = 8.9667 a₀) and print a warning when they do.
+
+The extended H₂ scan is archived in `h2_dissociation/h2_extended_tail.csv`.
+It records the verified finite-R point at R = 21.44068 a₀, where
+W∞ = −0.6255029547 E_H, selected from the R = 10–25 a₀ rows that pass the
+WY density-quality check. The SI reference-table generator includes this
+point before the exact dissociation-limit row.
 
 **Do not use `PYOEP_Wp_inf_SCE` in the H₂ file.** It is broken (values up to
 ~1.5 × 10⁵ E_H from a known problem in that Hessian route). Figure 9 uses

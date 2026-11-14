@@ -10,7 +10,8 @@ values, in addition to the CSV files. This script writes
   He       H- ... Ar16+, FCI rows, PyOEP density, 5ZaPa-NR-CV (--he CSV, default he_series/merged_results.csv);
            ions missing from the CSV are printed as "--"; literature as in main-text Table 1.
   H2       FCI density (aug-cc-pV5Z); W_inf dual-Kantorovich (winf_cyl), W'_inf rmZPE
-           (winf_prime_rmzpe_cyl); selected R in the window 0.3 <= R < 7.66262 bohr used for Figs. 7-9.
+           (winf_prime_rmzpe_cyl); selected R in the available scan through 10.96666 bohr,
+           plus the verified extended-tail point at R=21.44068 bohr.
 Values are printed to 6 decimals, as in Table 1 of the main text.
 """
 import argparse
@@ -36,8 +37,8 @@ HOOK_EXACT = {0.0365373: (-0.169884, 0.022415), 0.1: (-0.304219, 0.054142), 0.5:
 HE_LIT = {"H-": (r"$-0.569$\cite{mirtschink2012energy}, $-0.5689$\cite{seidl07,SCE_CCSD}", ""),
           "He": (r"$-1.5000$\cite{seidl07}, $-1.498$\cite{mirtschink2012energy}, $-1.4982$\cite{SCE_CCSD}",
                  r"$0.62084$\cite{gorigiorgi09}")}
-H2_R = [0.3, 0.5, 0.75, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5]
-H2_CUTOFF = 7.66262
+H2_R = [0.3, 0.5, 0.75, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 7.66262, 8.0, 9.0, 10.0, 10.96666]
+H2_CUTOFF = 10.96666
 
 
 def num(x):
@@ -96,13 +97,17 @@ def h2():
     d = pd.read_csv(HERE / "h2_dissociation" / "final_merged_dou_sig.csv", comment="#", skip_blank_lines=True)
     with contextlib.redirect_stdout(io.StringIO()):
         fr = pw.solver_frame(d, "PYOEP")
-    fr = fr[(fr.R_bohr >= 0.3) & (fr.R_bohr < H2_CUTOFF)].sort_values("R_bohr")
+    fr = fr[(fr.R_bohr >= 0.3) & (fr.R_bohr <= H2_CUTOFF)].sort_values("R_bohr")
+    tail = pd.read_csv(HERE / "h2_dissociation" / "h2_extended_tail.csv", comment="#")
+    tail = tail[tail.WY_rho_ok.astype(str).str.lower().eq("true")]
     rows = []
     for R in H2_R:
         r = fr.iloc[int(np.argmin(np.abs(fr.R_bohr.to_numpy() - R)))]
         wi, wp = float(r.winf_cyl), float(r.winf_prime_rmzpe_cyl)
         rows.append(f"{float(r.R_bohr):.3f} & {num(wi)} & {num(wp)} \\\\")
-    print(f"H2: {len(rows)} of {len(fr)} R points in 0.3 <= R < {H2_CUTOFF} bohr")
+    for _, t in tail.iterrows():
+        rows.append(f"{float(t.R_bohr):.3f} & {num(float(t.W_inf))} & {num(float(t.Wp_inf))} \\\\")
+    print(f"H2: {len(rows)} of {len(fr)} R points in 0.3 <= R <= {H2_CUTOFF} bohr")
     head = [r"\begin{tabular}{r cc}", r"\toprule",
             r"$R$ ($a_0$) & $W_\infty$ (dual Kantorovich) & $W'_\infty$ (rmZPE) \\", r"\midrule"]
     tail = [r"\midrule", r"$\infty$ (exact) & $-0.625000$\cite{seidl07} & 0 \\"]

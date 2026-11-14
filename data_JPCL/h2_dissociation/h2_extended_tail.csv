@@ -1,0 +1,5 @@
+# Selected from the archived aug-cc-pV5Z FCI scan through R=25 a0.
+# The selected point is the closest finite-R value to the exact -0.625000 Eh
+# among the R=10--25 a0 rows that passed the WY density-quality check.
+R_bohr,W_inf,Wp_inf,WY_rho_ok,source_file
+21.44068,-0.6255029547,0.0088790806,True,R_21_4407/dou_sig.csv
