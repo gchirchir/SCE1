@@ -80,6 +80,4 @@ The script needs only pandas.
 | `../JAXSCE_SCE/` | SCE implementation and calculation drivers |
 | https://github.com/gchirchir/SCE1 | public repository with this folder, the full data and the code |
 
-## License
-
-MIT. See `../LICENSE`.
+ 
