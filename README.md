@@ -35,8 +35,4 @@ Expected last line: `18/18 figures reproduce the manuscript exactly.`
 Re-running the electronic-structure and SCE calculations additionally needs
 PySCF, JAX, KS-pies, and PyOEP (see `JAXSCE_SCE/README.md`).
 
-## Citation and license
 
-Please cite the paper above; citation metadata are in `CITATION.cff`. The code
-is released under the MIT License (`LICENSE`); `JAXSCE_SCE/` builds on the
-jaxsce code of D. P. Kooi and K. J. Daas (see `JAXSCE_SCE/LICENSE`).
