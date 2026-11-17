@@ -63,7 +63,7 @@ save(d[["Z", "system", "N_electrons", "basis", "density_type"] + list(W)].rename
      .sort_values(["Z", "N_electrons"]), "atoms_ions/atoms_ions_W0_Winf_Wpinf.csv")
 
 # H2 dissociation, FCI target density; W_inf = dual-Kantorovich (cylindrical),
-# W'_inf = restricted-mode zero-point (rmZPE) value, as in the manuscript
+# W'_inf = restricted-mode zero-point (rmZPE) value
 d = pd.read_csv(src / "h2_dissociation/final_merged_dou_sig.csv")
 d = d[["R_bohr", "density_type", "PYOEP_W0", "PYOEP_winf_cyl", "PYOEP_winf_prime_rmzpe_cyl"]]
 save(d.rename(columns={"PYOEP_W0": "W_0", "PYOEP_winf_cyl": "W_inf",
